@@ -1,0 +1,21 @@
+.SwitchContainer {
+    display: flex;
+    border-radius: 50px;
+    border: 1.5px solid #644BBA;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: max-content;
+    padding: 7px 10px;
+  }
+  
+  .ToggleItem {
+    height: 40px;
+    width: 150px;
+    display: flex;
+    border-radius: 35px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
