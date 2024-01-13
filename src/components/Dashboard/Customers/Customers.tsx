@@ -10,8 +10,9 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { Paper } from "@mui/material";
-import { data } from "../../../../utils/constanst";
+
+import { useGetFetcher } from "../../../hooks/useGetFetcherCustomers";
+import { useQuery } from "react-query";
 
 interface Props {}
 
@@ -20,6 +21,10 @@ export const Customers: React.FC<Props> = () => {
   let clientesN: number = 0;
   let clientesC: number = 0;
   let clientesNC: number = 0;
+
+  const fetcher = useGetFetcher();
+
+  const { data, status } = useQuery("dataCustomers", fetcher);
 
   const [showData, setShowData] = React.useState(false);
   const [clientesTotales, setClientesTotales] = React.useState(false);
@@ -38,24 +43,26 @@ export const Customers: React.FC<Props> = () => {
     setShowData(true);
   }, []);
 
-  Object.values(data).map((item) => {
-    if (item["Clientes totales"] > 0) {
-    } else {
-      clientesT += 1;
-    }
-    if (item["Clientes nuevos"] > 0) {
-    } else {
-      clientesN += 1;
-    }
-    if (item["Compraron"] > 0) {
-    } else {
-      clientesC += 1;
-    }
-    if (item["No compraron"] > 0) {
-    } else {
-      clientesNC += 1;
-    }
-  });
+  if (data !== undefined) {
+    Object.values(data).map((item) => {
+      if ((item as { [key: string]: number })["Clientes totales"] > 0) {
+      } else {
+        clientesT += 1;
+      }
+      if ((item as { [key: string]: number })["Clientes nuevos"] > 0) {
+      } else {
+        clientesN += 1;
+      }
+      if ((item as { [key: string]: number })["Compraron"] > 0) {
+      } else {
+        clientesC += 1;
+      }
+      if ((item as { [key: string]: number })["No compraron"] > 0) {
+      } else {
+        clientesNC += 1;
+      }
+    });
+  }
 
   return (
     <>

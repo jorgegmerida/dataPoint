@@ -8,22 +8,12 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { SwitchOptions } from "../../../utils/constanst";
 import { Switch } from "../Switch";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useQuery } from "react-query";
+import { useGetFetcher } from "../../hooks/useGetFetcherPerMounths";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -40,6 +30,10 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export const Cards: React.FC = () => {
+  const fetcher = useGetFetcher();
+
+  const { data, status } = useQuery("dataPerMonths", fetcher);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -86,7 +80,111 @@ export const Cards: React.FC = () => {
         unmountOnExit
         sx={{ marginTop: "20px" }}
       >
-        <Card sx={{ width: 345 }}>
+        {data !== undefined &&
+          data.map((item: any) => {
+            return (
+              <>
+                <Card sx={{ width: 345 }}>
+                  <CardHeader
+                    title={item.title}
+                    sx={{
+                      textAlign: "center",
+                      color: "#000",
+                      fontFamily: "Roboto",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "24px",
+                    }}
+                  />
+                  <CardContent>
+                    <Box display={"flex"} flexDirection={"column"}>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography color="text.secondary">
+                          {item.subtilte1}
+                        </Typography>
+                        <Typography color="text.secondary">
+                          {item.subtilte11}
+                        </Typography>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography color="text.secondary">
+                          {item.subtilte2}
+                        </Typography>
+                        <Typography color="text.secondary">
+                          {item.subtilte22}
+                        </Typography>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography color="text.secondary">
+                          {item.subtilte3}
+                        </Typography>
+                        <Typography color="text.secondary">
+                          {item.subtilte33}
+                        </Typography>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography
+                          sx={{
+                            color: "#000",
+                            fontFamily: "Roboto",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                          }}
+                        >
+                          {item.subtilte4}
+                        </Typography>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography color="text.secondary">
+                          {item.subtilte44}
+                        </Typography>
+                        <Typography color="text.secondary">
+                          {item.subtilte441}
+                        </Typography>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"row"}
+                        justifyContent={"space-between"}
+                      >
+                        <Typography color="text.secondary">
+                          {item.subtilte444}
+                        </Typography>
+                        <Typography color="text.secondary">
+                          {item.subtilte4441}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Card>
+                <br></br>
+              </>
+            );
+          })}
+        {/* <Card sx={{ width: 345 }}>
           <CardHeader
             title="Noviembre"
             sx={{
@@ -119,7 +217,7 @@ export const Cards: React.FC = () => {
               </Box>
             </Box>
           </CardContent>
-        </Card>
+        </Card> */}
       </Collapse>
     </Box>
   );

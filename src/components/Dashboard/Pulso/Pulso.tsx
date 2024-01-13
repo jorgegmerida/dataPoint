@@ -10,22 +10,26 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { dataPulso } from "../../../../utils/constanst";
 import { Box } from "@mui/material";
+import { useQuery } from "react-query";
+import { useGetFetcher } from "../../../hooks/useGetFetcherPulso";
 
 interface Props {}
 
 export const Pulso: React.FC<Props> = () => {
   const [showData, setShowData] = React.useState(false);
+  const fetcher = useGetFetcher();
+
+  const { data, status } = useQuery("dataPulso", fetcher);
 
   React.useEffect(() => {
     setShowData(true);
   }, []);
   return (
     <>
-      {showData && (
+      {showData && status === "success" && (
         <Box display={"inline-block"} marginTop={"250px"} marginLeft={"50px"}>
-          <ComposedChart width={1300} height={400} data={dataPulso}>
+          <ComposedChart width={1300} height={400} data={data}>
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />

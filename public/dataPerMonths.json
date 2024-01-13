@@ -1,0 +1,45 @@
+[
+    {
+        "title":"Diciembre",
+        "subtilte1": "Clientes",
+        "subtilte11": 11.420,
+        "subtilte2": "Ventas totales",
+        "subtilte22": 13.420,
+        "subtilte3": "Monto total",
+        "subtilte33": 11.420,
+        "subtilte4": "Cashback",
+        "subtilte44": "Acumulado",
+        "subtilte441": 11.420,
+        "subtilte444": "Facturado 12/12",
+        "subtilte4441": 54.420
+    },
+    {
+        "title":"Noviembre",
+        "subtilte1": "Clientes",
+        "subtilte11": 11.420,
+        "subtilte2": "Ventas totales",
+        "subtilte22": 15.420,
+        "subtilte3": "Monto total",
+        "subtilte33": 11.420,
+        "subtilte4": "Cashback",
+        "subtilte44": "Acumulado",
+        "subtilte441": 11.420,
+        "subtilte444": "Facturado 24/11",
+        "subtilte4441": 36.420
+    },
+    
+    {
+        "title":"Octubre",
+        "subtilte1": "Clientes",
+        "subtilte11": 11.420,
+        "subtilte2": "Ventas totales",
+        "subtilte22": 16.420,
+        "subtilte3": "Monto total",
+        "subtilte33": 11.420,
+        "subtilte4": "Cashback",
+        "subtilte44": "Acumulado",
+        "subtilte441": 11.420,
+        "subtilte444": "Facturado 1/10",
+        "subtilte4441": 76.420
+     }
+]

@@ -65,7 +65,12 @@ const Dashboard: React.FC<Props> = () => {
   //   setShowData(true);
   // }, []);
   return (
-    <Box display={"flex"} flexDirection={"column"} minWidth={"100vw"}>
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      minWidth={"100vw"}
+      minHeight={"100vh"}
+    >
       <Box display={"flex"} justifyContent={"space-around"}>
         <Box
           display={"flex"}
