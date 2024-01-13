@@ -18,6 +18,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useRouter } from "next/router";
+import { useWindowDataLayer } from "../../../utils/useWindowDataLayer";
+import { evInteraction } from "../../models";
 
 interface Props {
   window?: () => Window;
@@ -28,11 +30,17 @@ const navItems = ["Home", "About", "Contact"];
 
 export const Header: React.FC<Props> = (props: Props) => {
   const { window } = props;
+
+  const windowDataLayer = useWindowDataLayer();
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
   const router = useRouter();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -46,6 +54,18 @@ export const Header: React.FC<Props> = (props: Props) => {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const dataLayer1: evInteraction = {
+    event: "evInteraction",
+    category: "button",
+    action: "click",
+    label: "Dashboard|Clientes|Reglas De Acumulación",
+    value: "no_aplica",
+    component: "no_aplica",
+    description: "no_aplica",
+    result: "no_aplica",
+    destination: "no_aplica",
+  };
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -70,6 +90,7 @@ export const Header: React.FC<Props> = (props: Props) => {
               }}
               onClick={() => {
                 router.push("/dashboard");
+                windowDataLayer({ ...dataLayer1, label: "Dashboard" });
               }}
             >
               Dashboard
@@ -89,6 +110,9 @@ export const Header: React.FC<Props> = (props: Props) => {
                 letterSpacing: "0.1px",
                 textTransform: "capitalize",
               }}
+              onClick={() => {
+                windowDataLayer({ ...dataLayer1, label: "Clientes" });
+              }}
             >
               Clientes
             </Button>
@@ -106,6 +130,12 @@ export const Header: React.FC<Props> = (props: Props) => {
                 lineHeight: "20px",
                 letterSpacing: "0.1px",
                 textTransform: "capitalize",
+              }}
+              onClick={() => {
+                windowDataLayer({
+                  ...dataLayer1,
+                  label: "Reglas De Acumulación",
+                });
               }}
             >
               Reglas de acumulación

@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { dataPulso } from "../../../utils/constanst";
+import { dataPulso } from "../../../../utils/constanst";
 import { Box } from "@mui/material";
 
 interface Props {}

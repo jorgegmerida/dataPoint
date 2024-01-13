@@ -20,6 +20,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useSelectDashboards } from "../../src/stores/useSelectDashboards";
 import { Pulso } from "../../src/components/Dashboard/Pulso";
+import { FloatCards } from "../../src/components/FloatsCards";
 
 interface Props {}
 
@@ -71,7 +72,7 @@ const Dashboard: React.FC<Props> = () => {
           flexDirection={"row"}
           justifyContent={"space-between"}
           gap={"20px"}
-          marginLeft={"50px"}
+          marginRight={"300px"}
           marginTop={"-20px"}
         >
           <ToggleButton
@@ -171,7 +172,7 @@ const Dashboard: React.FC<Props> = () => {
           </MenuItem>
         </Menu>
 
-        <Box marginLeft={"230px"} display={"flex"}>
+        <Box marginRight={"500px"} display={"flex"}>
           <VisibilityIcon sx={{ color: "#644BBA" }} />
           <ToggleButton
             value="check"
@@ -189,14 +190,33 @@ const Dashboard: React.FC<Props> = () => {
                 fontWeight: 500,
                 lineHeight: "20px" /* 142.857% */,
                 letterSpacing: "0.1px",
+                marginTop: "10px",
               }}
             >
               Ver detalle
             </Typography>
           </ToggleButton>
         </Box>
-
-        <Cards />
+        <FloatCards>
+          <Cards />
+        </FloatCards>
+        <div
+          style={{
+            display: "flex",
+            position: "absolute",
+            justifyContent: "right",
+            textAlign: "right",
+            justifyItems: "right",
+            alignItems: "right",
+            alignContent: "right",
+            float: "right",
+            right: "0",
+            zIndex: 1,
+            marginRight: "120px",
+            marginTop: "-10px",
+          }}
+          id="Cards"
+        />
       </Box>
       <Box
         display={"flex"}
@@ -251,7 +271,6 @@ const Dashboard: React.FC<Props> = () => {
                 letterSpacing: "0.1px",
               }}
             >
-              {" "}
               Transacciones
             </Typography>
           </ToggleButton>
@@ -302,7 +321,6 @@ const Dashboard: React.FC<Props> = () => {
                 letterSpacing: "0.1px",
               }}
             >
-              {" "}
               Cashback
             </Typography>
           </ToggleButton>

@@ -5,20 +5,35 @@ import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import { Box, Button } from "@mui/material";
 import styles from "./Switch.module.scss";
-import { SwitchOptions } from "../../utils/constanst";
+import { SwitchOptions } from "../../../utils/constanst";
 import { useSelectDashboards } from "../../stores/useSelectDashboards";
+import { evInteraction } from "../../models";
+import { useWindowDataLayer } from "../../../utils/useWindowDataLayer";
 
 interface Props {}
 
 export const Switch: React.FC<Props> = () => {
+  const windowDataLayer = useWindowDataLayer();
+  const { Dashboards, setDashboard } = useSelectDashboards();
+
   const [activeOption, setActiveOption] = React.useState<SwitchOptions>(
     SwitchOptions.OPTION1
   );
 
-  const { Dashboards, setDashboard } = useSelectDashboards();
-
   const handleSwitchClick = (option: SwitchOptions) => {
     setActiveOption(option);
+  };
+
+  const dataLayer1: evInteraction = {
+    event: "evInteraction",
+    category: "button",
+    action: "click",
+    label: "Gráfico|Pulso",
+    value: "no_aplica",
+    component: "no_aplica",
+    description: "no_aplica",
+    result: "no_aplica",
+    destination: "no_aplica",
   };
 
   React.useEffect(() => {
@@ -35,6 +50,7 @@ export const Switch: React.FC<Props> = () => {
         <Button
           onClick={() => {
             setDashboard({ ...Dashboards, Customers: true, Pulso: false });
+            windowDataLayer({ ...dataLayer1, label: "Gráfico" });
           }}
         >
           <Box
@@ -84,6 +100,7 @@ export const Switch: React.FC<Props> = () => {
         <Button
           onClick={() => {
             setDashboard({ ...Dashboards, Customers: false, Pulso: true });
+            windowDataLayer({ ...dataLayer1, label: "Pulso" });
           }}
         >
           <Box

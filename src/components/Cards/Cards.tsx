@@ -8,7 +8,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { SwitchOptions } from "../../utils/constanst";
+import { SwitchOptions } from "../../../utils/constanst";
 import { Switch } from "../Switch";
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
@@ -56,13 +56,11 @@ export const Cards: React.FC = () => {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      justifyContent={"right"}
-      alignContent={"flex-end"}
-      alignItems={"flex-end"}
-      textAlign={"right"}
-      justifyItems={"right"}
-      marginTop={"-10px"}
-      marginRight={"80px"}
+      justifyContent={"center"}
+      alignContent={"center"}
+      alignItems={"center"}
+      textAlign={"center"}
+      justifyItems={"center"}
     >
       <Box display={"flex"} flexDirection={"row"}>
         <Box marginRight={"60px"}>

@@ -11,7 +11,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import { Paper } from "@mui/material";
-import { data } from "../../../utils/constanst";
+import { data } from "../../../../utils/constanst";
 
 interface Props {}
 
