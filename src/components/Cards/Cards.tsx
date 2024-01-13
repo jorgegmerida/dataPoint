@@ -61,8 +61,8 @@ export const Cards: React.FC = () => {
       alignItems={"flex-end"}
       textAlign={"right"}
       justifyItems={"right"}
-      marginRight={"180px"}
-      marginTop={"-50px"}
+      marginTop={"-10px"}
+      marginRight={"80px"}
     >
       <Box display={"flex"} flexDirection={"row"}>
         <Box marginRight={"60px"}>

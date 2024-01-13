@@ -17,6 +17,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useRouter } from "next/router";
 
 interface Props {
   window?: () => Window;
@@ -28,6 +29,7 @@ const navItems = ["Home", "About", "Contact"];
 export const Header: React.FC<Props> = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const router = useRouter();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -65,6 +67,9 @@ export const Header: React.FC<Props> = (props: Props) => {
                 lineHeight: "20px",
                 letterSpacing: "0.1px",
                 textTransform: "capitalize",
+              }}
+              onClick={() => {
+                router.push("/dashboard");
               }}
             >
               Dashboard
@@ -106,22 +111,23 @@ export const Header: React.FC<Props> = (props: Props) => {
               Reglas de acumulación
             </Button>
           </Stack>
-          <Typography
-            component="div"
-            style={{
-              color: "#1C1B1E",
-              textAlign: "center",
-              fontFamily: "Roboto",
-              fontSize: "16px",
-              fontStyle: "normal",
-              fontWeight: 500,
-              lineHeight: "24px" /* 150% */,
-            }}
-            sx={{ display: { marginLeft: "320px" } }}
-          >
-            Pamela Rojas González
-          </Typography>
-
+          <Box>
+            <Typography
+              component="div"
+              style={{
+                color: "#1C1B1E",
+                textAlign: "center",
+                fontFamily: "Roboto",
+                fontSize: "16px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "24px" /* 150% */,
+              }}
+              sx={{ display: { marginLeft: "320px" } }}
+            >
+              Pamela Rojas González
+            </Typography>
+          </Box>
           <Button
             sx={{ color: "#1C1B1E" }}
             id="basic-button"
@@ -129,7 +135,7 @@ export const Header: React.FC<Props> = (props: Props) => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ color: "#1C1B1E" }}
+            style={{ color: "#1C1B1E", marginRight: "200px" }}
           >
             <KeyboardArrowDownIcon sx={{ marginLeft: "10px" }} />{" "}
           </Button>
@@ -150,13 +156,6 @@ export const Header: React.FC<Props> = (props: Props) => {
               <Typography sx={{ marginLeft: "10px" }}>Cerrar sesión</Typography>
             </MenuItem>
           </Menu>
-          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
         </Toolbar>
       </AppBar>
 

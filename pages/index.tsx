@@ -16,8 +16,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Dashboard />
-        <Cards />
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          <Dashboard />
+        </Box>
       </main>
     </div>
   );
