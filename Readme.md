@@ -106,6 +106,13 @@
 
 ## UsageGTM
 
+#### Comprobar Intalación
+
+_Dentro del dashboard de nuestra cuenta GTM hacemos click al botón Vista Previa.
+Esto nos abrirá Tag Assistant donde ingresaremos la URL a conectar. En mi caso utilice http://localhost:3000 pero claro se puede poner un dominio también.
+Al hacer click en el botón Connect se abrirá una nueva ventana del navegador mostrando un cuadro notificando la conexión a Tag Assistant.
+Hacemos click en el botón Continue y veremos los diferentes etiquetas(tags) que tenemos configurado en GTM. Como por ejemplo, en mi sitio estoy cargando etiquetas evInteraction mediante las cuales hago un trackeo de los botones que el usuario va presionando._
+
 <!-- CONTACT -->
 
 ## Contact
