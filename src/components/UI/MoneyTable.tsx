@@ -7,6 +7,16 @@ interface Props {
 }
 
 export const MoneyTable: React.FC<Props> = ({ data }) => {
+  let acumulateArrayMoney: any = [];
+  data.column1?.map((itemCol1: any, indexColumn1: number) => {
+    return data.column2?.map((itemCol2: any, indexColumn2: number) => {
+      if (indexColumn1 === indexColumn2) {
+        const acumulate = itemCol1.dinero + itemCol2.dinero;
+        return acumulateArrayMoney.push(acumulate);
+      }
+    });
+  });
+
   return (
     <Box
       display={"flex"}
@@ -90,6 +100,23 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
                 return (
                   <Box>
                     {item.dinero}
+                    <br></br>
+                    <br></br>
+                  </Box>
+                );
+              })}
+            </Box>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
+            >
+              {acumulateArrayMoney?.map((item: any) => {
+                return (
+                  <Box>
+                    {item}
                     <br></br>
                     <br></br>
                   </Box>

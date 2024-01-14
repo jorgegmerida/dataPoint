@@ -13,7 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useQuery } from "react-query";
-import { useGetFetcher } from "../../hooks/useGetFetcherPerMounths";
+import { useGetFetcher } from "../../hooks/useGetFetcher";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -32,7 +32,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export const Cards: React.FC = () => {
   const fetcher = useGetFetcher();
 
-  const { data, status } = useQuery("dataPerMonths", fetcher);
+  const { data, status } = useQuery("dataPerMonths", () =>
+    fetcher("/api/dataPerMonths")
+  );
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

@@ -24,14 +24,12 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useSelectDashboards } from "../../src/stores/useSelectDashboards";
 import { Pulso } from "../../src/components/Dashboard/Pulso";
 import { FloatCards } from "../../src/components/FloatsCards";
-import { useGetFetcher } from "../../src/hooks/useGetFetcherCustomers";
-import { useGetFetcherTransactions } from "../../src/hooks/useGetFetcherTransactions";
+import { useGetFetcher } from "../../src/hooks/useGetFetcher";
 import { useQuery } from "react-query";
 import { CustomersTable } from "../../src/components/UI/CustomersTable";
 import { TransactionTable } from "../../src/components/UI/TransactionsTable";
-import { CashbackTable } from "../../src/components/UI/CashbackTable";
 import { MoneyTable } from "../../src/components/UI/MoneyTable";
-import { useGetFetcherMoney } from "../../src/hooks/useGetFetcherMoney";
+import { CashbackTable } from "../../src/components/UI/CashbackTable";
 
 interface Props {}
 
@@ -42,15 +40,20 @@ const Dashboard: React.FC<Props> = () => {
   const open = Boolean(anchorEl);
 
   const fetcher = useGetFetcher();
-  const fetcherTransactions = useGetFetcherTransactions();
-  const fetcherMoney = useGetFetcherMoney();
 
-  const { data: dataCustomers } = useQuery("dataCustomers", fetcher);
-  const { data: dataTransactions } = useQuery(
-    "dataTransactions",
-    fetcherTransactions
+  const { data: dataCustomers } = useQuery("dataCustomers", () =>
+    fetcher("/api/dataCustomers")
   );
-  const { data: dataMoney } = useQuery("dataMoney", fetcherMoney);
+  const { data: dataTransactions } = useQuery("dataTransactions", () =>
+    fetcher("/api/dataTransactions")
+  );
+  const { data: dataMoney } = useQuery("dataMoney", () =>
+    fetcher("/api/dataMoney")
+  );
+
+  const { data: dataCashback } = useQuery("dataCashback", () =>
+    fetcher("/api/dataCashback")
+  );
 
   const [expanded, setExpanded] = React.useState(false);
   const [selected, setSelected] = React.useState({
@@ -517,7 +520,7 @@ const Dashboard: React.FC<Props> = () => {
           {customersToggle && <CustomersTable data={dataCustomers} />}
           {transactionToggle && <TransactionTable data={dataTransactions} />}
           {dineroToggle && <MoneyTable data={dataMoney} />}
-          {/* {cashbackToggle && <CashbackTable data={data} />}  */}
+          {cashbackToggle && <CashbackTable data={dataCashback} />}
         </Box>
       )}
     </Box>

@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { Box } from "@mui/material";
 import { useQuery } from "react-query";
-import { useGetFetcher } from "../../../hooks/useGetFetcherPulso";
+import { useGetFetcher } from "../../../hooks/useGetFetcher";
 
 interface Props {}
 
@@ -20,7 +20,9 @@ export const Pulso: React.FC<Props> = () => {
   const [showData, setShowData] = React.useState(false);
   const fetcher = useGetFetcher();
 
-  const { data, status } = useQuery("dataPulso", fetcher);
+  const { data, status } = useQuery("dataPulso", () =>
+    fetcher("/api/dataPulso")
+  );
 
   React.useEffect(() => {
     setShowData(true);

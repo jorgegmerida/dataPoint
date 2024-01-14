@@ -2,58 +2,58 @@
  
     "column1":[{
       "name":"Lunes",
-      "dinero":800.000
+      "cashback":5000.000
    },
    {
       "name":"Martes",
-      "dinero":300.000
+      "cashback":1200.000
    },
    {
       "name":"Miercoles",
-      "dinero":700.000
+      "cashback":3400.000
    },
    {
       "name":"Jueves",
-      "dinero":100.000
+      "cashback":5400.000
    },
    {
       "name":"Viernes",
-      "dinero":400.000
+      "cashback":1200.000
    },
    {
       "name":"Sádado",
-      "dinero":300.000
+      "cashback":6300.000
    },
    {
       "name":"Domingo",
-      "dinero":100.000
+      "cashback":8700.000
    }],
    "column2":[{
       "name":"Lunes",
-      "dinero":500.000
+      "cashback":2300.000
    },
    {
       "name":"Martes",
-      "dinero":600.000
+      "cashback":5100.000
    },
    {
       "name":"Miercoles",
-      "dinero":700.000
+      "cashback":8240.000
    },
    {
       "name":"Jueves",
-      "dinero":100.000
+      "cashback":1720.000
    },
    {
       "name":"Viernes",
-      "dinero":900.000
+      "cashback":6340.000
    },
    {
       "name":"Sádado",
-      "dinero":340.000
+      "cashback":2920.000
    },
    {
       "name":"Domingo",
-      "dinero":154.000
+      "cashback":8254.000
    }]    
 }

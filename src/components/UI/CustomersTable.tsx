@@ -7,36 +7,19 @@ interface Props {
 }
 
 export const CustomersTable: React.FC<Props> = ({ data }) => {
-  let acumulateCustomers1: number = 0;
-  let acumulateCustomers2: number = 0;
-  let acumulateCustomers3: number = 0;
-  let acumulateCustomers4: number = 0;
-  let acumulateCustomers5: number = 0;
-  let acumulateCustomers6: number = 0;
-  let acumulateCustomers7: number = 0;
-  data.hours.slice(0, 3).map((item: any) => {
-    acumulateCustomers1 += item["Clientes nuevos"];
-  });
-
-  data.hours.slice(3, 6).map((item: any) => {
-    acumulateCustomers2 += item["Clientes nuevos"];
-  });
-
-  data.hours.slice(6, 9).map((item: any) => {
-    acumulateCustomers3 += item["Clientes nuevos"];
-  });
-
-  data.hours.slice(9, 12).map((item: any) => {
-    acumulateCustomers4 += item["Clientes nuevos"];
-  });
-  data.hours.slice(12, 15).map((item: any) => {
-    acumulateCustomers5 += item["Clientes nuevos"];
-  });
-  data.hours.slice(15, 18).map((item: any) => {
-    acumulateCustomers6 += item["Clientes nuevos"];
-  });
-  data.hours.slice(18, 21).map((item: any) => {
-    acumulateCustomers7 += item["Clientes nuevos"];
+  let acumulateArrayCustomers: any = [];
+  data.Column1?.map((itemCol1: any, indexColumn1: number) => {
+    return data.Column2?.map((itemCol2: any, indexColumn2: number) => {
+      return data.Column3?.map((itemCol3: any, indexColumn3: number) => {
+        if (indexColumn1 === indexColumn2 && indexColumn2 === indexColumn3) {
+          const acumulate =
+            itemCol1["Clientes nuevos"] +
+            itemCol2["Clientes nuevos"] +
+            itemCol3["Clientes nuevos"];
+          return acumulateArrayCustomers.push(acumulate);
+        }
+      });
+    });
   });
 
   return (
@@ -101,7 +84,6 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"column"}
               justifyContent={"left"}
               textAlign={"left"}
-              marginTop={"14px"}
             >
               {data.Column1?.map((item: any) => {
                 return (
@@ -118,7 +100,6 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"column"}
               justifyContent={"left"}
               textAlign={"left"}
-              marginTop={"14px"}
             >
               {data.Column2?.map((item: any) => {
                 return (
@@ -135,7 +116,6 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"column"}
               justifyContent={"left"}
               textAlign={"left"}
-              marginTop={"14px"}
             >
               {data.Column3?.map((item: any) => {
                 return (
@@ -154,29 +134,15 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               textAlign={"center"}
               marginRight={"16px"}
             >
-              <>
-                <Box marginLeft={"0px"}>
-                  {acumulateCustomers1}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers2}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers3}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers4}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers5}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers6}
-                  <br></br>
-                  <br></br>
-                  {acumulateCustomers7}
-                </Box>
-              </>
+              {acumulateArrayCustomers.map((item: any) => {
+                return (
+                  <Box>
+                    {item}
+                    <br></br>
+                    <br></br>
+                  </Box>
+                );
+              })}
             </Box>
           </Box>
         </CardContent>

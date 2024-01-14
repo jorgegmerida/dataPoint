@@ -11,7 +11,7 @@ import {
   CartesianGrid,
 } from "recharts";
 
-import { useGetFetcher } from "../../../hooks/useGetFetcherCustomers";
+import { useGetFetcher } from "../../../hooks/useGetFetcher";
 import { useQuery } from "react-query";
 
 interface Props {}
@@ -24,7 +24,9 @@ export const Customers: React.FC<Props> = () => {
 
   const fetcher = useGetFetcher();
 
-  const { data, status } = useQuery("dataCustomers", fetcher);
+  const { data, status } = useQuery("dataCustomers", () =>
+    fetcher("/api/dataCustomers")
+  );
 
   const [showData, setShowData] = React.useState(false);
 
@@ -33,7 +35,7 @@ export const Customers: React.FC<Props> = () => {
   }, []);
 
   if (data !== undefined) {
-    Object.values(data).map((item) => {
+    Object.values(data.hours).map((item) => {
       if ((item as { [key: string]: number })["Clientes totales"] > 0) {
       } else {
         clientesT += 1;
@@ -52,7 +54,7 @@ export const Customers: React.FC<Props> = () => {
       }
     });
   }
-
+  console.log(clientesT, clientesN, clientesC, clientesNC);
   return (
     <>
       {showData && data !== undefined && (

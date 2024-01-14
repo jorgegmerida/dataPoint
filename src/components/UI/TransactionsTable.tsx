@@ -49,7 +49,7 @@ export const TransactionTable: React.FC<Props> = ({ data }) => {
               display={"flex"}
               flexDirection={"column"}
               justifyContent={"center"}
-              marginTop={"30px"}
+              marginTop={"20px"}
             >
               {data.days.map((item: any) => {
                 return (
