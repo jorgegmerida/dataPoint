@@ -24,10 +24,10 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#installation">Installation && Usage</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#UsageGTM">GTM</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -37,7 +37,8 @@
 
 ## About The Project
 
-Version NextJS 12 && ReactJs 18
+> [!NOTE]
+> Version NextJS 12 && ReactJs 18
 
 1. Maquetear Dashboard diseñado en Figma, en el siguiente link:
    https://www.figma.com/file/DYVhRceKMd5TiSSXveLhxw/Desaf%C3%ADo-Front-end?type=design&node-id=0%3A1&mode=design&t=k5zi6Eub663yqRJC-1
@@ -102,6 +103,8 @@ Version NextJS 12 && ReactJs 18
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## UsageGTM
 
 <!-- CONTACT -->
 
