@@ -14,6 +14,7 @@ export const FloatCards: React.FC<Props> = ({ children }) => (
         height: "auto",
         justifyContent: "center",
         display: "flex",
+        alignItems: "center",
       }}
     >
       {children}
