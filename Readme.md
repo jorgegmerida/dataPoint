@@ -60,7 +60,7 @@ Version NextJS 12 && ReactJs 18
 
 [![React][next.js]][next-url]
 
-- [![Next][react.js]][react-url]
+[![Next][react.js]][react-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
