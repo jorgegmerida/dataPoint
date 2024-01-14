@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import {
   Box,
   Button,
+  Card,
+  CardContent,
+  CardHeader,
   Collapse,
   Menu,
   MenuItem,
@@ -21,6 +24,13 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useSelectDashboards } from "../../src/stores/useSelectDashboards";
 import { Pulso } from "../../src/components/Dashboard/Pulso";
 import { FloatCards } from "../../src/components/FloatsCards";
+import { useGetFetcher } from "../../src/hooks/useGetFetcherCustomers";
+import { useGetFetcherTransactions } from "../../src/hooks/useGetFetcherTransactions";
+import { useQuery } from "react-query";
+import { CustomersTable } from "../../src/components/UI/CustomersTable";
+import { TransactionTable } from "../../src/components/UI/TransactionsTable";
+import { CashbackTable } from "../../src/components/UI/CashbackTable";
+import { MoneyTable } from "../../src/components/UI/MoneyTable";
 
 interface Props {}
 
@@ -29,6 +39,15 @@ const Dashboard: React.FC<Props> = () => {
   const { isReady } = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const fetcher = useGetFetcher();
+  const fetcherTransactions = useGetFetcherTransactions();
+
+  const { data: dataCustomers } = useQuery("dataCustomers", fetcher);
+  const { data: dataTransactions } = useQuery(
+    "dataTransactions",
+    fetcherTransactions
+  );
 
   const [expanded, setExpanded] = React.useState(false);
   const [selected, setSelected] = React.useState({
@@ -45,11 +64,13 @@ const Dashboard: React.FC<Props> = () => {
   const [transactionToggle, setSelectedTransactionToggle] =
     React.useState(false);
 
-  const { Dashboards } = useSelectDashboards();
-
   const [dineroToggle, setSelectedDineroToggle] = React.useState(false);
 
   const [cashbackToggle, setSelectedCashbackToggle] = React.useState(false);
+
+  const { Dashboards } = useSelectDashboards();
+
+  const [valueTogle, setValueTogle] = React.useState<string>("");
 
   const handleExpandClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -61,9 +82,17 @@ const Dashboard: React.FC<Props> = () => {
     setExpanded(false);
   };
 
-  // React.useEffect(() => {
-  //   setShowData(true);
-  // }, []);
+  const handleClickToggle = (value: string) => {
+    setValueTogle(value);
+  };
+
+  React.useEffect(() => {}, [
+    customersToggle,
+    transactionToggle,
+    dineroToggle,
+    cashbackToggle,
+  ]);
+
   return (
     <Box
       display={"flex"}
@@ -85,8 +114,18 @@ const Dashboard: React.FC<Props> = () => {
             selected={selected.hoy}
             sx={{ border: "none" }}
             onChange={() => {
-              setSelected({ ...selected, hoy: !selected.hoy });
+              setSelected({
+                ...selected,
+                hoy: !selected.hoy,
+                semana: false,
+                mes: false,
+                semestre: false,
+                ytd: false,
+                anio: false,
+                max: false,
+              });
             }}
+            onClick={() => handleClickToggle("HOY")}
           >
             <Typography color={"#48454E"}>HOY</Typography>
           </ToggleButton>
@@ -95,8 +134,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.semana}
             onChange={() => {
-              setSelected({ ...selected, semana: !selected.semana });
+              setSelected({
+                ...selected,
+                semana: !selected.semana,
+                hoy: false,
+                mes: false,
+                semestre: false,
+                ytd: false,
+                anio: false,
+                max: false,
+              });
             }}
+            onClick={() => handleClickToggle("7D")}
           >
             <Typography color={"#48454E"}> 7D</Typography>
           </ToggleButton>
@@ -105,8 +154,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.mes}
             onChange={() => {
-              setSelected({ ...selected, mes: !selected.mes });
+              setSelected({
+                ...selected,
+                mes: !selected.mes,
+                hoy: false,
+                semana: false,
+                semestre: false,
+                ytd: false,
+                anio: false,
+                max: false,
+              });
             }}
+            // onClick={() => handleClickToggle("Este Mes")}
           >
             <Typography color={"#48454E"}>Este Mes</Typography>
           </ToggleButton>
@@ -115,8 +174,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.semestre}
             onChange={() => {
-              setSelected({ ...selected, semestre: !selected.semestre });
+              setSelected({
+                ...selected,
+                semestre: !selected.semestre,
+                hoy: false,
+                semana: false,
+                mes: false,
+                ytd: false,
+                anio: false,
+                max: false,
+              });
             }}
+            // onClick={() => handleClickToggle("6M")}
           >
             <Typography color={"#48454E"}> 6M</Typography>
           </ToggleButton>
@@ -125,8 +194,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.ytd}
             onChange={() => {
-              setSelected({ ...selected, ytd: !selected.ytd });
+              setSelected({
+                ...selected,
+                ytd: !selected.ytd,
+                anio: false,
+                max: false,
+                hoy: false,
+                semana: false,
+                mes: false,
+                semestre: false,
+              });
             }}
+            // onClick={() => handleClickToggle("YTD/YTG")}
           >
             <Typography color={"#48454E"}> YTD/YTG</Typography>
           </ToggleButton>
@@ -135,8 +214,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.anio}
             onChange={() => {
-              setSelected({ ...selected, anio: !selected.anio });
+              setSelected({
+                ...selected,
+                anio: !selected.anio,
+                max: false,
+                hoy: false,
+                semana: false,
+                mes: false,
+                semestre: false,
+                ytd: false,
+              });
             }}
+            // onClick={() => handleClickToggle("1A")}
           >
             <Typography color={"#48454E"}> 1A</Typography>
           </ToggleButton>
@@ -145,8 +234,18 @@ const Dashboard: React.FC<Props> = () => {
             value="check"
             selected={selected.max}
             onChange={() => {
-              setSelected({ ...selected, max: !selected.max });
+              setSelected({
+                ...selected,
+                max: !selected.max,
+                anio: false,
+                ytd: false,
+                semestre: false,
+                mes: false,
+                semana: false,
+                hoy: false,
+              });
             }}
+            // onClick={() => handleClickToggle("MÁX")}
           >
             <Typography color={"#48454E"}> MÁX</Typography>
           </ToggleButton>
@@ -332,21 +431,94 @@ const Dashboard: React.FC<Props> = () => {
         </Box>
       </Box>
       {Dashboards.Customers ? <Customers /> : <Pulso />}
+      {Dashboards.Customers && (
+        <Box display={"flex"} flexDirection={"row"}>
+          <Box
+            display={"flex"}
+            justifyContent={"left "}
+            marginLeft={"340px"}
+            marginTop={"40px"}
+          >
+            {valueTogle.length > 0 && (
+              <Card
+                sx={{
+                  display: "flex",
+                  maxWidth: "auto",
+                  padding: "15px",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                  borderradius: "10px",
+                  background: "#E6E1E6",
+                }}
+              >
+                <CardHeader
+                  title={valueTogle}
+                  sx={{
+                    textAlign: "center",
+                    color: "#000",
+                    fontFamily: "Roboto",
+                    fontSize: "19px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "24px",
+                  }}
+                />
+                <CardContent>
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    justifyContent={"center"}
+                    textAlign={"center"}
+                  >
+                    <Typography color="text.secondary">
+                      {valueTogle === "HOY" ? "Horas" : "Semana"}
+                    </Typography>
+
+                    <br></br>
+                    <Box
+                      display={"flex"}
+                      flexDirection={"column"}
+                      justifyContent={"space-between"}
+                    >
+                      {valueTogle === "HOY" ? (
+                        dataCustomers.hoursBetween?.map((item: any) => {
+                          return (
+                            <Box>
+                              {item.name}
+                              <br></br>
+                              <br></br>
+                            </Box>
+                          );
+                        })
+                      ) : valueTogle === "7D" ? (
+                        dataCustomers.days?.map((item: any) => {
+                          return (
+                            <Box>
+                              {item.name}
+                              <br></br>
+                              <br></br>
+                            </Box>
+                          );
+                        })
+                      ) : (
+                        <></>
+                      )}
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            )}
+          </Box>
+
+          {customersToggle && <CustomersTable data={dataCustomers} />}
+          {transactionToggle && <TransactionTable data={dataTransactions} />}
+          {/* {dineroToggle && <MoneyTable data={data} />}
+          {cashbackToggle && <CashbackTable data={data} />} */}
+        </Box>
+      )}
     </Box>
   );
-  // if (isReady) {
-  //   return (
-  //     <>
-  //       (
-  //       <Grid>
-  //         <br>ssss</br>
-  //       </Grid>
-  //       )
-  //     </>
-  //   );
-  // } else {
-  //   return <></>;
-  // }
 };
 
 export default Dashboard;

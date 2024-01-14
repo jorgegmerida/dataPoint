@@ -1,5 +1,6 @@
-[
-    {
+{
+   
+   "hours":[{
        "name":"00:00",
        "Clientes totales":0,
        "Clientes nuevos":4,
@@ -166,5 +167,105 @@
        "Clientes nuevos":66,
        "Compraron":44,
        "No compraron":0
-    }
- ]
+    }],
+
+    "hoursBetween":[{
+      "name":"00:00 - 04:00",
+      "Clientes totales":0,
+      "Clientes nuevos":4,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"04:00 - 08:00",
+      "Clientes totales":0,
+      "Clientes nuevos":6,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"08:00 - 12:00",
+      "Clientes totales":0,
+      "Clientes nuevos":8,
+      "Compraron":25,
+      "No compraron":0
+   },
+   {
+      "name":"12:00 - 16:00",
+      "Clientes totales":0,
+      "Clientes nuevos":2,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"16:00 - 20:00",
+      "Clientes totales":0,
+      "Clientes nuevos":6,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"20:00 - 23:00",
+      "Clientes totales":0,
+      "Clientes nuevos":13,
+      "Compraron":28,
+      "No compraron":0
+   },
+   {
+      "name":"23:00 - 03:00",
+      "Clientes totales":0,
+      "Clientes nuevos":13,
+      "Compraron":28,
+      "No compraron":0
+   }],
+
+    "days":[{
+      "name":"Lunes",
+      "Clientes totales":0,
+      "Clientes nuevos":4,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Martes",
+      "Clientes totales":0,
+      "Clientes nuevos":6,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Miercoles",
+      "Clientes totales":0,
+      "Clientes nuevos":23,
+      "Compraron":25,
+      "No compraron":0
+   },
+   {
+      "name":"Jueves",
+      "Clientes totales":0,
+      "Clientes nuevos":2,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Viernes",
+      "Clientes totales":0,
+      "Clientes nuevos":6,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Sádado",
+      "Clientes totales":0,
+      "Clientes nuevos":65,
+      "Compraron":28,
+      "No compraron":0
+   },
+   {
+      "name":"Domingo",
+      "Clientes totales":0,
+      "Clientes nuevos":54,
+      "Compraron":28,
+      "No compraron":0
+   }]    
+}

@@ -184,40 +184,6 @@ export const Cards: React.FC = () => {
               </>
             );
           })}
-        {/* <Card sx={{ width: 345 }}>
-          <CardHeader
-            title="Noviembre"
-            sx={{
-              textAlign: "center",
-              color: "#000",
-              fontFamily: "Roboto",
-              fontSize: "16px",
-              fontStyle: "normal",
-              fontWeight: 500,
-              lineHeight: "24px",
-            }}
-          />
-          <CardContent>
-            <Box display={"flex"} flexDirection={"column"}>
-              <Box
-                display={"flex"}
-                flexDirection={"row"}
-                justifyContent={"space-between"}
-              >
-                <Typography color="text.secondary">Clientes</Typography>
-                <Typography color="text.secondary">81.420</Typography>
-              </Box>
-              <Box
-                display={"flex"}
-                flexDirection={"row"}
-                justifyContent={"space-between"}
-              >
-                <Typography color="text.secondary">Ventas Totales</Typography>
-                <Typography color="text.secondary">81.420</Typography>
-              </Box>
-            </Box>
-          </CardContent>
-        </Card> */}
       </Collapse>
     </Box>
   );

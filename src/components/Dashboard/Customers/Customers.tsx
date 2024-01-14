@@ -27,17 +27,6 @@ export const Customers: React.FC<Props> = () => {
   const { data, status } = useQuery("dataCustomers", fetcher);
 
   const [showData, setShowData] = React.useState(false);
-  const [clientesTotales, setClientesTotales] = React.useState(false);
-  const [clientesNuevos, setClientesNuevos] = React.useState(false);
-  const [clientesCompraron, setClientesCompraron] = React.useState(false);
-  const [clientesNoCompraron, setClientesNoCompraron] = React.useState(false);
-
-  const [clientes, setClientes] = React.useState({
-    clientesTotales: false,
-    clientesNuevos: false,
-    clientesCompraron: false,
-    clientesNoCompraron: false,
-  });
 
   React.useEffect(() => {
     setShowData(true);
@@ -66,9 +55,9 @@ export const Customers: React.FC<Props> = () => {
 
   return (
     <>
-      {showData && (
+      {showData && data !== undefined && (
         <Box display={"inline-block"} marginTop={"250px"} marginLeft={"50px"}>
-          <BarChart width={1300} height={400} data={data}>
+          <BarChart width={1300} height={400} data={data.hours!}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
