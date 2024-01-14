@@ -1,5 +1,6 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
+import { arrayMoneyColumns } from "../../../utils/constanst";
 
 interface Props {
   data: any;
@@ -40,11 +41,61 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
         <CardContent>
           <Box
             display={"flex"}
-            flexDirection={"column"}
+            flexDirection={"row"}
             justifyContent={"center"}
             textAlign={"center"}
           >
-            <br></br>
+            <Box
+              display={"flex"}
+              flexDirection={"row"}
+              justifyContent={"space-between"}
+              textAlign={"center"}
+              gap={9}
+            >
+              {arrayMoneyColumns.map((titles) => {
+                return (
+                  <Box display={"flex"}>
+                    <Typography>{titles}</Typography>
+                  </Box>
+                );
+              })}
+            </Box>
+          </Box>
+          <Box display={"flex"} gap={14} marginLeft={"14px"}>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
+            >
+              {data.column1?.map((item: any) => {
+                return (
+                  <Box>
+                    {item.dinero}
+                    <br></br>
+                    <br></br>
+                  </Box>
+                );
+              })}
+            </Box>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
+            >
+              {data.column2?.map((item: any) => {
+                return (
+                  <Box>
+                    {item.dinero}
+                    <br></br>
+                    <br></br>
+                  </Box>
+                );
+              })}
+            </Box>
           </Box>
         </CardContent>
       </Card>

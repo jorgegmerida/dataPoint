@@ -74,7 +74,7 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
         <CardContent>
           <Box
             display={"flex"}
-            flexDirection={"column"}
+            flexDirection={"row"}
             justifyContent={"center"}
             textAlign={"center"}
           >
@@ -93,115 +93,57 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
                 );
               })}
             </Box>
-            <br></br>
+          </Box>
+          <br></br>
+          <Box display={"flex"} gap={16} marginLeft={"16px"}>
             <Box
               display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
             >
-              {data.hours.slice(0, 3).map((item: any) => {
+              {data.Column1?.map((item: any) => {
                 return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
+                  <Box>
+                    {item["Clientes nuevos"]}
+                    <br></br>
+                    <br></br>
+                  </Box>
                 );
               })}
             </Box>
-            <br></br>
             <Box
               display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
             >
-              {data.hours.slice(3, 6).map((item: any) => {
+              {data.Column2?.map((item: any) => {
                 return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
+                  <Box>
+                    {item["Clientes nuevos"]}
+                    <br></br>
+                    <br></br>
+                  </Box>
                 );
               })}
             </Box>
-            <br></br>
             <Box
               display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
+              flexDirection={"column"}
+              justifyContent={"left"}
+              textAlign={"left"}
+              marginTop={"14px"}
             >
-              {data.hours.slice(6, 9).map((item: any) => {
+              {data.Column3?.map((item: any) => {
                 return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
-                );
-              })}
-            </Box>
-            <br></br>
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
-            >
-              {data.hours.slice(9, 12).map((item: any) => {
-                return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
-                );
-              })}
-            </Box>
-            <br></br>
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
-            >
-              {data.hours.slice(12, 15).map((item: any) => {
-                return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
-                );
-              })}
-            </Box>
-            <br></br>
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
-            >
-              {data.hours.slice(15, 18).map((item: any) => {
-                return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
-                );
-              })}
-            </Box>
-            <br></br>
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              textAlign={"center"}
-              paddingRight={"120px"}
-            >
-              {data.hours.slice(18, 21).map((item: any) => {
-                return (
-                  <>
-                    <Box marginLeft={"10px"}>{item["Clientes nuevos"]}</Box>
-                  </>
+                  <Box>
+                    {item["Clientes nuevos"]}
+                    <br></br>
+                    <br></br>
+                  </Box>
                 );
               })}
             </Box>
@@ -210,12 +152,10 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"column"}
               justifyContent={"center"}
               textAlign={"center"}
-              marginTop={"-315px"}
-              marginLeft={"420px"}
-              gap={3}
+              marginRight={"16px"}
             >
               <>
-                <Box marginLeft={"10px"}>
+                <Box marginLeft={"0px"}>
                   {acumulateCustomers1}
                   <br></br>
                   <br></br>

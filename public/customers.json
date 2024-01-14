@@ -267,5 +267,153 @@
       "Clientes nuevos":54,
       "Compraron":28,
       "No compraron":0
-   }]    
+   }],
+   "Column1":[{
+      "name":"Lunes",
+      "Clientes totales":0,
+      "Clientes nuevos":42,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Martes",
+      "Clientes totales":0,
+      "Clientes nuevos":46,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Miercoles",
+      "Clientes totales":0,
+      "Clientes nuevos":43,
+      "Compraron":25,
+      "No compraron":0
+   },
+   {
+      "name":"Jueves",
+      "Clientes totales":0,
+      "Clientes nuevos":4,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Viernes",
+      "Clientes totales":0,
+      "Clientes nuevos":12,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Sádado",
+      "Clientes totales":0,
+      "Clientes nuevos":64,
+      "Compraron":28,
+      "No compraron":0
+   },
+   {
+      "name":"Domingo",
+      "Clientes totales":0,
+      "Clientes nuevos":54,
+      "Compraron":28,
+      "No compraron":0
+   }],
+   "Column2":[{
+      "name":"Lunes",
+      "Clientes totales":0,
+      "Clientes nuevos":45,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Martes",
+      "Clientes totales":0,
+      "Clientes nuevos":16,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Miercoles",
+      "Clientes totales":0,
+      "Clientes nuevos":13,
+      "Compraron":25,
+      "No compraron":0
+   },
+   {
+      "name":"Jueves",
+      "Clientes totales":0,
+      "Clientes nuevos":85,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Viernes",
+      "Clientes totales":0,
+      "Clientes nuevos":64,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Sádado",
+      "Clientes totales":0,
+      "Clientes nuevos":65,
+      "Compraron":28,
+      "No compraron":0
+   },
+   {
+      "name":"Domingo",
+      "Clientes totales":0,
+      "Clientes nuevos":3,
+      "Compraron":28,
+      "No compraron":0
+   }],
+   "Column3":[{
+      "name":"Lunes",
+      "Clientes totales":0,
+      "Clientes nuevos":12,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Martes",
+      "Clientes totales":0,
+      "Clientes nuevos":16,
+      "Compraron":24,
+      "No compraron":0
+   },
+   {
+      "name":"Miercoles",
+      "Clientes totales":0,
+      "Clientes nuevos":3,
+      "Compraron":25,
+      "No compraron":0
+   },
+   {
+      "name":"Jueves",
+      "Clientes totales":0,
+      "Clientes nuevos":24,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Viernes",
+      "Clientes totales":0,
+      "Clientes nuevos":62,
+      "Compraron":26,
+      "No compraron":0
+   },
+   {
+      "name":"Sádado",
+      "Clientes totales":0,
+      "Clientes nuevos":15,
+      "Compraron":28,
+      "No compraron":0
+   },
+   {
+      "name":"Domingo",
+      "Clientes totales":0,
+      "Clientes nuevos":34,
+      "Compraron":28,
+      "No compraron":0
+   }]
+
 }

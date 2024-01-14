@@ -31,6 +31,7 @@ import { CustomersTable } from "../../src/components/UI/CustomersTable";
 import { TransactionTable } from "../../src/components/UI/TransactionsTable";
 import { CashbackTable } from "../../src/components/UI/CashbackTable";
 import { MoneyTable } from "../../src/components/UI/MoneyTable";
+import { useGetFetcherMoney } from "../../src/hooks/useGetFetcherMoney";
 
 interface Props {}
 
@@ -42,12 +43,14 @@ const Dashboard: React.FC<Props> = () => {
 
   const fetcher = useGetFetcher();
   const fetcherTransactions = useGetFetcherTransactions();
+  const fetcherMoney = useGetFetcherMoney();
 
   const { data: dataCustomers } = useQuery("dataCustomers", fetcher);
   const { data: dataTransactions } = useQuery(
     "dataTransactions",
     fetcherTransactions
   );
+  const { data: dataMoney } = useQuery("dataMoney", fetcherMoney);
 
   const [expanded, setExpanded] = React.useState(false);
   const [selected, setSelected] = React.useState({
@@ -436,10 +439,10 @@ const Dashboard: React.FC<Props> = () => {
           <Box
             display={"flex"}
             justifyContent={"left "}
-            marginLeft={"340px"}
+            marginLeft={"100px"}
             marginTop={"40px"}
           >
-            {valueTogle.length > 0 && (
+            {(selected.hoy || selected.semana) && (
               <Card
                 sx={{
                   display: "flex",
@@ -481,7 +484,7 @@ const Dashboard: React.FC<Props> = () => {
                       flexDirection={"column"}
                       justifyContent={"space-between"}
                     >
-                      {valueTogle === "HOY" ? (
+                      {valueTogle === "HOY" && selected.hoy ? (
                         dataCustomers.hoursBetween?.map((item: any) => {
                           return (
                             <Box>
@@ -491,7 +494,7 @@ const Dashboard: React.FC<Props> = () => {
                             </Box>
                           );
                         })
-                      ) : valueTogle === "7D" ? (
+                      ) : valueTogle === "7D" && selected.semana ? (
                         dataCustomers.days?.map((item: any) => {
                           return (
                             <Box>
@@ -513,8 +516,8 @@ const Dashboard: React.FC<Props> = () => {
 
           {customersToggle && <CustomersTable data={dataCustomers} />}
           {transactionToggle && <TransactionTable data={dataTransactions} />}
-          {/* {dineroToggle && <MoneyTable data={data} />}
-          {cashbackToggle && <CashbackTable data={data} />} */}
+          {dineroToggle && <MoneyTable data={dataMoney} />}
+          {/* {cashbackToggle && <CashbackTable data={data} />}  */}
         </Box>
       )}
     </Box>

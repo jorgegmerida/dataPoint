@@ -9,3 +9,5 @@ export const arrayCustomersColumns = [
   "Column 3",
   "Total",
 ];
+
+export const arrayMoneyColumns = ["Column 1", "Column 2", "Total"];
