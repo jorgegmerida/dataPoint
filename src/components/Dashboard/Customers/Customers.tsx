@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import {
   BarChart,
   Bar,
@@ -10,6 +10,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import { ICustomerData } from "../../../models";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 interface Props {
   data: ICustomerData;
@@ -128,6 +129,17 @@ export const Customers: React.FC<Props> = ({
               fill={clientesNC < 1 ? "#2DCF5A" : "rgb(45,207,90,0.4)"}
             />
           </BarChart>
+
+          <Box
+            display={"flex"}
+            flexDirection={"row"}
+            justifyContent={"center"}
+            marginTop={mobileCheck ? "5px" : "20px"}
+            marginLeft={mobileCheck ? "600px" : ""}
+          >
+            <FileDownloadIcon sx={{ color: "#644BBA" }} />
+            <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>
+          </Box>
         </Box>
       )}
     </>

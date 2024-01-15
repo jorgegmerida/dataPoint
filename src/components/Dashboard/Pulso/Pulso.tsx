@@ -10,9 +10,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useQuery } from "react-query";
 import { useGetFetcher } from "../../../hooks/useGetFetcher";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 interface Props {}
 
@@ -56,6 +57,16 @@ export const Pulso: React.FC<Props> = () => {
             <Bar dataKey="pv" barSize={20} fill="#413ea0" />
             <Line type="monotone" dataKey="uv" stroke="#ff7300" />
           </ComposedChart>
+          <Box
+            display={"flex"}
+            flexDirection={"row"}
+            justifyContent={"center"}
+            marginTop={mobileCheck ? "5px" : "20px"}
+            marginLeft={mobileCheck ? "600px" : ""}
+          >
+            <FileDownloadIcon sx={{ color: "#644BBA" }} />
+            <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>
+          </Box>
         </Box>
       )}
     </>
