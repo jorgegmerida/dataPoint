@@ -24,7 +24,8 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation && Usage</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Usage">Usage</a></li>
       </ul>
     </li>
     <li><a href="#UsageGTM">GTM</a></li>
@@ -83,7 +84,7 @@
   npm install yarn
   ```
 
-### Installation and Usage
+### Installation
 
 1. Clone the repo
 
@@ -98,9 +99,21 @@
    yarn install
    ```
 
-   ```sh
-   yarn dev
-   ```
+### Usage
+
+1. Run app
+
+```sh
+ yarn dev
+
+```
+
+2. Check linter
+
+```sh
+ yarn lint
+
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
