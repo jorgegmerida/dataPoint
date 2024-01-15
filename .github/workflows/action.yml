@@ -23,7 +23,7 @@ jobs:
           CI: true
   securityCheck:
     name: Security Check
-    runs-on: manjaro-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check for Security
         run: |
@@ -33,3 +33,12 @@ jobs:
           sleep 5s;
           echo "Running Security Check...3"
           sleep 5s;
+
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    needs: [lintest, securityCheck]
+    steps:
+      - name: Installa Dependencies
+        run: |
+          echo "Running Deploy..."
