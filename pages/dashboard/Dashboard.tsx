@@ -980,7 +980,7 @@ const Dashboard: React.FC<Props> = () => {
                       justifyContent={"space-between"}
                     >
                       {selected.hoy ? (
-                        dataCustomers.hoursBetween?.map(
+                        dataCustomers?.hoursBetween!.map(
                           (item: ICustomer, index: number) => {
                             return (
                               <Box key={index}>
@@ -992,7 +992,7 @@ const Dashboard: React.FC<Props> = () => {
                           }
                         )
                       ) : selected.semana ? (
-                        dataCustomers.days?.map(
+                        dataCustomers?.days?.map(
                           (item: ICustomer, index: number) => {
                             return (
                               <Box key={index}>
