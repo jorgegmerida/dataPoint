@@ -29,12 +29,13 @@ import { CustomersTable } from "../../src/components/UI/CustomersTable";
 import { TransactionTable } from "../../src/components/UI/TransactionsTable";
 import { MoneyTable } from "../../src/components/UI/MoneyTable";
 import { CashbackTable } from "../../src/components/UI/CashbackTable";
-import { ICustomer } from "../../src/models";
+import { ICustomer, evInteraction } from "../../src/models";
+import { useWindowDataLayer } from "../../utils/useWindowDataLayer";
 
 interface Props {}
 
 const Dashboard: React.FC<Props> = () => {
-  // const [showData, setShowData] = React.useState(true);
+  const windowDataLayer = useWindowDataLayer();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -94,6 +95,30 @@ const Dashboard: React.FC<Props> = () => {
     setValueTogle(value);
   };
 
+  const dataLayer1: evInteraction = {
+    event: "evInteraction",
+    category: "button",
+    action: "click",
+    label: "HOY|7D|Este Mes1|6M|YTD/YTG|1A|MÁX",
+    value: "no_aplica",
+    component: "no_aplica",
+    description: "no_aplica",
+    result: "no_aplica",
+    destination: "no_aplica",
+  };
+
+  const dataLayer2: evInteraction = {
+    event: "evInteraction",
+    category: "button",
+    action: "click",
+    label: "CLIENTES|TRANSACCIONES|DINERO|CASHBACK",
+    value: "no_aplica",
+    component: "no_aplica",
+    description: "no_aplica",
+    result: "no_aplica",
+    destination: "no_aplica",
+  };
+
   React.useEffect(() => {}, [
     customersToggle,
     transactionToggle,
@@ -134,7 +159,10 @@ const Dashboard: React.FC<Props> = () => {
                 max: false,
               });
             }}
-            onClick={() => handleClickToggle("HOY")}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "HOY" });
+              handleClickToggle("HOY");
+            }}
           >
             <Typography color={"#48454E"}>HOY</Typography>
           </ToggleButton>
@@ -154,7 +182,10 @@ const Dashboard: React.FC<Props> = () => {
                 max: false,
               });
             }}
-            onClick={() => handleClickToggle("7D")}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "7D" });
+              handleClickToggle("7D");
+            }}
           >
             <Typography color={"#48454E"}> 7D</Typography>
           </ToggleButton>
@@ -173,6 +204,9 @@ const Dashboard: React.FC<Props> = () => {
                 anio: false,
                 max: false,
               });
+            }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "Este Mes" });
             }}
           >
             <Typography color={"#48454E"}>Este Mes</Typography>
@@ -193,6 +227,9 @@ const Dashboard: React.FC<Props> = () => {
                 max: false,
               });
             }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "6M" });
+            }}
           >
             <Typography color={"#48454E"}> 6M</Typography>
           </ToggleButton>
@@ -212,7 +249,9 @@ const Dashboard: React.FC<Props> = () => {
                 semestre: false,
               });
             }}
-            // onClick={() => handleClickToggle("YTD/YTG")}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "YTD/YTG" });
+            }}
           >
             <Typography color={"#48454E"}> YTD/YTG</Typography>
           </ToggleButton>
@@ -232,7 +271,9 @@ const Dashboard: React.FC<Props> = () => {
                 ytd: false,
               });
             }}
-            // onClick={() => handleClickToggle("1A")}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "1A" });
+            }}
           >
             <Typography color={"#48454E"}> 1A</Typography>
           </ToggleButton>
@@ -252,7 +293,9 @@ const Dashboard: React.FC<Props> = () => {
                 hoy: false,
               });
             }}
-            // onClick={() => handleClickToggle("MÁX")}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer1, label: "MÁX" });
+            }}
           >
             <Typography color={"#48454E"}> MÁX</Typography>
           </ToggleButton>
@@ -346,12 +389,16 @@ const Dashboard: React.FC<Props> = () => {
           marginRight={mobileCheck ? "" : "25px"}
         >
           <ToggleButton
+            id="toggleClientes"
             value="check"
             selected={customersToggle}
             onChange={() => {
               setSelectedCustomersToggle(!customersToggle);
             }}
             sx={{ width: "auto", height: "32px" }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer2, label: "CLIENTES" });
+            }}
           >
             <CheckIcon />
             <Typography
@@ -370,12 +417,16 @@ const Dashboard: React.FC<Props> = () => {
             </Typography>
           </ToggleButton>
           <ToggleButton
+            id="toggleTransacciones"
             value="check"
             selected={transactionToggle}
             onChange={() => {
               setSelectedTransactionToggle(!transactionToggle);
             }}
             sx={{ width: "auto", height: "32px" }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer2, label: "TRANSACCIONES" });
+            }}
           >
             <Typography
               color={"#48454E"}
@@ -401,12 +452,16 @@ const Dashboard: React.FC<Props> = () => {
           marginRight={mobileCheck ? "150px" : "70px"}
         >
           <ToggleButton
+            id="toggleDinero"
             value="check"
             selected={dineroToggle}
             onChange={() => {
               setSelectedDineroToggle(!dineroToggle);
             }}
             sx={{ width: "auto", height: "32px" }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer2, label: "DINERO" });
+            }}
           >
             <Typography
               color={"#48454E"}
@@ -425,6 +480,7 @@ const Dashboard: React.FC<Props> = () => {
             </Typography>
           </ToggleButton>
           <ToggleButton
+            id="toggleCashback"
             value="check"
             selected={cashbackToggle}
             onChange={() => {
@@ -432,6 +488,9 @@ const Dashboard: React.FC<Props> = () => {
               console.log("object");
             }}
             sx={{ width: "auto", height: "32px" }}
+            onClick={() => {
+              windowDataLayer({ ...dataLayer2, label: "CASHBACK" });
+            }}
           >
             <Typography
               color={"#48454E"}

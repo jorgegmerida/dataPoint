@@ -61,6 +61,7 @@ export const Switch: React.FC<Props> = () => {
         }}
       >
         <Button
+          id="graphycButton"
           onClick={() => {
             setDashboard({ ...Dashboards, Customers: true, Pulso: false });
             windowDataLayer({ ...dataLayer1, label: "Gráfico" });

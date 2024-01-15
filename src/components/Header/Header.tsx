@@ -77,6 +77,8 @@ export const Header: React.FC<Props> = () => {
           {mobileCheck ? (
             <Stack spacing={4} direction="row">
               <Button
+                id="dashboardButton"
+                disabled={selected.dashboard}
                 style={{
                   background: selected.dashboard ? "#644BBA" : "#FFF",
                   borderRadius: " 100px",
@@ -209,6 +211,7 @@ export const Header: React.FC<Props> = () => {
             }}
           >
             <IconButton
+              id="navMenuButton"
               size="large"
               edge="start"
               color="inherit"
