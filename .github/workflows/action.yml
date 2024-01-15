@@ -7,19 +7,18 @@ on:
 jobs:
   lintest:
     name: Lint
-    runs-on: manjaro-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
       - name: Install Dependencies
         run: |
           echo "Running Installing Dependencies..."
-          npm install yarn -g
-          yarn install
+          npm install
       - name: Run Linting
         run: |
           echo "Running Linting Test...
-          yarn lint"
+          npm run lint"
         env:
           CI: true
   securityCheck:
