@@ -34,8 +34,8 @@ export const Pulso: React.FC<Props> = () => {
       {showData && status === "success" && (
         <Box
           display={"inline-block"}
-          marginTop={mobileCheck ? "250px" : "150px"}
-          marginLeft={mobileCheck ? "50px" : ""}
+          marginTop={mobileCheck ? "250px" : "120px"}
+          marginLeft={mobileCheck ? "50px" : "20px"}
         >
           <ComposedChart
             width={mobileCheck ? 1300 : 300}

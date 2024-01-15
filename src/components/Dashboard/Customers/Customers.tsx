@@ -9,25 +9,44 @@ import {
   Legend,
   CartesianGrid,
 } from "recharts";
+import { ICustomerData } from "../../../models";
 
-import { useGetFetcher } from "../../../hooks/useGetFetcher";
-import { useQuery } from "react-query";
+interface Props {
+  data: ICustomerData;
+  selected: {
+    hoy: boolean;
+    semana: boolean;
+    mes: boolean;
+    semestre: boolean;
+    ytd: boolean;
+    anio: boolean;
+    max: boolean;
+  };
+  selectedDay: {
+    todo: boolean;
+    lunes: boolean;
+    martes: boolean;
+    miercoles: boolean;
+    jueves: boolean;
+    viernes: boolean;
+    sabado: boolean;
+    domingo: boolean;
+  };
+  valueToggleDay: string;
+}
 
-interface Props {}
-
-export const Customers: React.FC<Props> = () => {
+export const Customers: React.FC<Props> = ({
+  data,
+  selected,
+  selectedDay,
+  valueToggleDay,
+}) => {
   let clientesT: number = 0;
   let clientesN: number = 0;
   let clientesC: number = 0;
   let clientesNC: number = 0;
 
-  const fetcher = useGetFetcher();
-
   const mobileCheck = useMediaQuery("(min-width: 600px)");
-
-  const { data } = useQuery("dataCustomers", () =>
-    fetcher("/api/dataCustomers")
-  );
 
   const [showData, setShowData] = React.useState(false);
 
@@ -37,20 +56,26 @@ export const Customers: React.FC<Props> = () => {
 
   if (data !== undefined) {
     Object.values(data.hours).map((item) => {
-      if ((item as { [key: string]: number })["clientesTotales"] < 1) {
+      if (
+        (item as unknown as { [key: string]: number })["clientesTotales"] < 1
+      ) {
         clientesT += 1;
       }
-      if ((item as { [key: string]: number })["clientesNuevos"] < 1) {
+      if (
+        (item as unknown as { [key: string]: number })["clientesNuevos"] < 1
+      ) {
         clientesN += 1;
       }
-      if ((item as { [key: string]: number })["compraron"] < 1) {
+      if ((item as unknown as { [key: string]: number })["compraron"] < 1) {
         clientesC += 1;
       }
-      if ((item as { [key: string]: number })["noCompraron"] < 1) {
+      if ((item as unknown as { [key: string]: number })["noCompraron"] < 1) {
         clientesNC += 1;
       }
     });
   }
+
+  const filterDay = data.days.find((day) => day.name === valueToggleDay);
 
   return (
     <>
@@ -60,13 +85,26 @@ export const Customers: React.FC<Props> = () => {
           justifyContent={"center"}
           alignContent={"center"}
           textAlign={"center"}
-          marginTop={mobileCheck ? "250px" : "150px"}
+          marginTop={mobileCheck ? "250px" : "120px"}
           marginLeft={mobileCheck ? "50px" : ""}
         >
           <BarChart
             width={mobileCheck ? 1300 : 300}
             height={mobileCheck ? 400 : 250}
-            data={data.hours!}
+            data={
+              selected.semana &&
+              (selectedDay.lunes ||
+                selectedDay.martes ||
+                selectedDay.miercoles ||
+                selectedDay.jueves ||
+                selectedDay.viernes ||
+                selectedDay.sabado ||
+                selectedDay.domingo)
+                ? [filterDay]
+                : selected.semana && selectedDay.todo
+                ? data.days
+                : data.hours
+            }
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />

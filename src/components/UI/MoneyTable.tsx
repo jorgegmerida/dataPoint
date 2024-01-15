@@ -31,7 +31,7 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      marginLeft={mobileCheck ? "20px" : "-80px"}
+      marginLeft={"20px"}
       marginTop={"40px"}
       width={mobileCheck ? "auto" : "330px"}
     >

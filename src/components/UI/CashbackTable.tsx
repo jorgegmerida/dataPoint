@@ -22,7 +22,7 @@ export const CashbackTable: React.FC<Props> = ({ data }) => {
       display={"flex"}
       justifyContent={"center"}
       marginTop={"40px"}
-      marginLeft={mobileCheck ? "20px" : "-80px"}
+      marginLeft={"20px"}
       width={mobileCheck ? "auto" : "330px"}
     >
       <Card

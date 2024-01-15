@@ -1,11 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
 import { ITransactionColumn, ITransactionData } from "../../models";
 
@@ -14,13 +7,11 @@ interface Props {
 }
 
 export const TransactionTable: React.FC<Props> = ({ data }) => {
-  const mobileCheck = useMediaQuery("(min-width: 600px)");
-
   return (
     <Box
       display={"flex"}
       justifyContent={"center"}
-      marginLeft={mobileCheck ? "20px" : "-80px"}
+      marginLeft={"20px"}
       marginTop={"40px"}
     >
       <Card
