@@ -4,7 +4,6 @@ import StarsIcon from "@mui/icons-material/Stars";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import { Box, Button } from "@mui/material";
-import styles from "./Switch.module.scss";
 import { SwitchOptions } from "../../../utils/constanst";
 import { useSelectDashboards } from "../../stores/useSelectDashboards";
 import { evInteraction } from "../../models";
@@ -46,7 +45,18 @@ export const Switch: React.FC<Props> = () => {
 
   return (
     <Stack direction="row" spacing={2}>
-      <Box className={styles.SwitchContainer}>
+      <Box
+        sx={{
+          display: "flex",
+          borderRadius: "50px",
+          border: "1.5px solid #644BBA",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "250px",
+          height: "max-content",
+          padding: "1px 1px",
+        }}
+      >
         <Button
           onClick={() => {
             setDashboard({ ...Dashboards, Customers: true, Pulso: false });
@@ -54,7 +64,15 @@ export const Switch: React.FC<Props> = () => {
           }}
         >
           <Box
-            className={styles.ToggleItem}
+            sx={{
+              height: "30px",
+              width: "150px",
+              display: "flex",
+              borderRadius: "35px",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
             style={{
               backgroundColor:
                 activeOption === SwitchOptions.OPTION1 || Dashboards.Customers
@@ -104,7 +122,15 @@ export const Switch: React.FC<Props> = () => {
           }}
         >
           <Box
-            className={styles.ToggleItem}
+            sx={{
+              height: "30px",
+              width: "150px",
+              display: "flex",
+              borderRadius: "35px",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
             style={{
               backgroundColor:
                 activeOption === SwitchOptions.OPTION2 || Dashboards.Pulso

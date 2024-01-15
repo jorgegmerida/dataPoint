@@ -2,418 +2,418 @@
    
    "hours":[{
        "name":"00:00",
-       "Clientes totales":0,
-       "Clientes nuevos":4,
-       "Compraron":24,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":4,
+       "compraron":24,
+       "noCompraron":0
     },
     {
        "name":"01:00",
-       "Clientes totales":0,
-       "Clientes nuevos":6,
-       "Compraron":24,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":6,
+       "compraron":24,
+       "noCompraron":0
     },
     {
        "name":"02:00",
-       "Clientes totales":0,
-       "Clientes nuevos":8,
-       "Compraron":25,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":8,
+       "compraron":25,
+       "noCompraron":0
     },
     {
        "name":"03:00",
-       "Clientes totales":0,
-       "Clientes nuevos":2,
-       "Compraron":26,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":2,
+       "compraron":26,
+       "noCompraron":0
     },
     {
        "name":"04:00",
-       "Clientes totales":0,
-       "Clientes nuevos":6,
-       "Compraron":26,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":6,
+       "compraron":26,
+       "noCompraron":0
     },
     {
        "name":"05:00",
-       "Clientes totales":0,
-       "Clientes nuevos":13,
-       "Compraron":28,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":13,
+       "compraron":28,
+       "noCompraron":0
     },
     {
        "name":"06:00",
-       "Clientes totales":0,
-       "Clientes nuevos":23,
-       "Compraron":44,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":23,
+       "compraron":44,
+       "noCompraron":0
     },
     {
        "name":"07:00",
-       "Clientes totales":0,
-       "Clientes nuevos":21,
-       "Compraron":34,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":21,
+       "compraron":34,
+       "noCompraron":0
     },
     {
        "name":"08:00",
-       "Clientes totales":0,
-       "Clientes nuevos":64,
-       "Compraron":74,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":64,
+       "compraron":74,
+       "noCompraron":0
     },
     {
        "name":"09:00",
-       "Clientes totales":0,
-       "Clientes nuevos":43,
-       "Compraron":34,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":43,
+       "compraron":34,
+       "noCompraron":0
     },
     {
        "name":"10:00",
-       "Clientes totales":0,
-       "Clientes nuevos":23,
-       "Compraron":14,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":23,
+       "compraron":14,
+       "noCompraron":0
     },
     {
        "name":"11:00",
-       "Clientes totales":0,
-       "Clientes nuevos":21,
-       "Compraron":84,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":21,
+       "compraron":84,
+       "noCompraron":0
     },
     {
        "name":"12:00",
-       "Clientes totales":0,
-       "Clientes nuevos":53,
-       "Compraron":64,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":53,
+       "compraron":64,
+       "noCompraron":0
     },
     {
        "name":"13:00",
-       "Clientes totales":0,
-       "Clientes nuevos":120,
-       "Compraron":34,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":120,
+       "compraron":34,
+       "noCompraron":0
     },
     {
        "name":"14:00",
-       "Clientes totales":0,
-       "Clientes nuevos":67,
-       "Compraron":64,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":67,
+       "compraron":64,
+       "noCompraron":0
     },
     {
        "name":"15:00",
-       "Clientes totales":0,
-       "Clientes nuevos":63,
-       "Compraron":64,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":63,
+       "compraron":64,
+       "noCompraron":0
     },
     {
        "name":"16:00",
-       "Clientes totales":0,
-       "Clientes nuevos":35,
-       "Compraron":74,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":35,
+       "compraron":74,
+       "noCompraron":0
     },
     {
        "name":"17:00",
-       "Clientes totales":0,
-       "Clientes nuevos":32,
-       "Compraron":84,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":32,
+       "compraron":84,
+       "noCompraron":0
     },
     {
        "name":"18:00",
-       "Clientes totales":0,
-       "Clientes nuevos":13,
-       "Compraron":84,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":13,
+       "compraron":84,
+       "noCompraron":0
     },
     {
        "name":"19:00",
-       "Clientes totales":0,
-       "Clientes nuevos":100,
-       "Compraron":94,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":100,
+       "compraron":94,
+       "noCompraron":0
     },
     {
        "name":"20:00",
-       "Clientes totales":0,
-       "Clientes nuevos":23,
-       "Compraron":14,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":23,
+       "compraron":14,
+       "noCompraron":0
     },
     {
        "name":"21:00",
-       "Clientes totales":0,
-       "Clientes nuevos":32,
-       "Compraron":44,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":32,
+       "compraron":44,
+       "noCompraron":0
     },
     {
        "name":"22:00",
-       "Clientes totales":0,
-       "Clientes nuevos":55,
-       "Compraron":64,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":55,
+       "compraron":64,
+       "noCompraron":0
     },
     {
        "name":"23:00",
-       "Clientes totales":0,
-       "Clientes nuevos":66,
-       "Compraron":44,
-       "No compraron":0
+       "clientesTotales":0,
+       "clientesNuevos":66,
+       "compraron":44,
+       "noCompraron":0
     }],
 
     "hoursBetween":[{
       "name":"00:00 - 04:00",
-      "Clientes totales":0,
-      "Clientes nuevos":4,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":4,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"04:00 - 08:00",
-      "Clientes totales":0,
-      "Clientes nuevos":6,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":6,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"08:00 - 12:00",
-      "Clientes totales":0,
-      "Clientes nuevos":8,
-      "Compraron":25,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":8,
+      "compraron":25,
+      "noCompraron":0
    },
    {
       "name":"12:00 - 16:00",
-      "Clientes totales":0,
-      "Clientes nuevos":2,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":2,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"16:00 - 20:00",
-      "Clientes totales":0,
-      "Clientes nuevos":6,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":6,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"20:00 - 23:00",
-      "Clientes totales":0,
-      "Clientes nuevos":13,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":13,
+      "compraron":28,
+      "noCompraron":0
    },
    {
       "name":"23:00 - 03:00",
-      "Clientes totales":0,
-      "Clientes nuevos":13,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":13,
+      "compraron":28,
+      "noCompraron":0
    }],
 
     "days":[{
       "name":"Lunes",
-      "Clientes totales":0,
-      "Clientes nuevos":4,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":4,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Martes",
-      "Clientes totales":0,
-      "Clientes nuevos":6,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":6,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Miercoles",
-      "Clientes totales":0,
-      "Clientes nuevos":23,
-      "Compraron":25,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":23,
+      "compraron":25,
+      "noCompraron":0
    },
    {
       "name":"Jueves",
-      "Clientes totales":0,
-      "Clientes nuevos":2,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":2,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Viernes",
-      "Clientes totales":0,
-      "Clientes nuevos":6,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":6,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Sádado",
-      "Clientes totales":0,
-      "Clientes nuevos":65,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":65,
+      "compraron":28,
+      "noCompraron":0
    },
    {
       "name":"Domingo",
-      "Clientes totales":0,
-      "Clientes nuevos":54,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":54,
+      "compraron":28,
+      "noCompraron":0
    }],
    "Column1":[{
       "name":"Lunes",
-      "Clientes totales":0,
-      "Clientes nuevos":42,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":42,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Martes",
-      "Clientes totales":0,
-      "Clientes nuevos":46,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":46,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Miercoles",
-      "Clientes totales":0,
-      "Clientes nuevos":43,
-      "Compraron":25,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":43,
+      "compraron":25,
+      "noCompraron":0
    },
    {
       "name":"Jueves",
-      "Clientes totales":0,
-      "Clientes nuevos":4,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":4,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Viernes",
-      "Clientes totales":0,
-      "Clientes nuevos":12,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":12,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Sádado",
-      "Clientes totales":0,
-      "Clientes nuevos":64,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":64,
+      "compraron":28,
+      "noCompraron":0
    },
    {
       "name":"Domingo",
-      "Clientes totales":0,
-      "Clientes nuevos":54,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":54,
+      "compraron":28,
+      "noCompraron":0
    }],
    "Column2":[{
       "name":"Lunes",
-      "Clientes totales":0,
-      "Clientes nuevos":45,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":45,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Martes",
-      "Clientes totales":0,
-      "Clientes nuevos":16,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":16,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Miercoles",
-      "Clientes totales":0,
-      "Clientes nuevos":13,
-      "Compraron":25,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":13,
+      "compraron":25,
+      "noCompraron":0
    },
    {
       "name":"Jueves",
-      "Clientes totales":0,
-      "Clientes nuevos":85,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":85,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Viernes",
-      "Clientes totales":0,
-      "Clientes nuevos":64,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":64,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Sádado",
-      "Clientes totales":0,
-      "Clientes nuevos":65,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":65,
+      "compraron":28,
+      "noCompraron":0
    },
    {
       "name":"Domingo",
-      "Clientes totales":0,
-      "Clientes nuevos":3,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":3,
+      "compraron":28,
+      "noCompraron":0
    }],
    "Column3":[{
       "name":"Lunes",
-      "Clientes totales":0,
-      "Clientes nuevos":12,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":12,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Martes",
-      "Clientes totales":0,
-      "Clientes nuevos":16,
-      "Compraron":24,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":16,
+      "compraron":24,
+      "noCompraron":0
    },
    {
       "name":"Miercoles",
-      "Clientes totales":0,
-      "Clientes nuevos":3,
-      "Compraron":25,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":3,
+      "compraron":25,
+      "noCompraron":0
    },
    {
       "name":"Jueves",
-      "Clientes totales":0,
-      "Clientes nuevos":24,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":24,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Viernes",
-      "Clientes totales":0,
-      "Clientes nuevos":62,
-      "Compraron":26,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":62,
+      "compraron":26,
+      "noCompraron":0
    },
    {
       "name":"Sádado",
-      "Clientes totales":0,
-      "Clientes nuevos":15,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":15,
+      "compraron":28,
+      "noCompraron":0
    },
    {
       "name":"Domingo",
-      "Clientes totales":0,
-      "Clientes nuevos":34,
-      "Compraron":28,
-      "No compraron":0
+      "clientesTotales":0,
+      "clientesNuevos":34,
+      "compraron":28,
+      "noCompraron":0
    }]
 
 }

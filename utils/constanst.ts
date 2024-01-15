@@ -12,3 +12,6 @@ export const arrayCustomersColumns = [
 
 export const arrayMoneyColumns = ["Column 1", "Column 2", "Total"];
 export const arrayCashbackColumns = ["Column 1", "Column 2"];
+
+export const menuRouteList = ["", "dashboard", "profile", ""];
+export const menuListTranslations = ["Home", "Dashboard", "Profile"];

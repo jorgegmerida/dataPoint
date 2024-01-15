@@ -12,6 +12,7 @@
     "@date-io/date-fns": "^3.0.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@eslint/create-config": "^0.4.6",
     "@material-ui/pickers": "^3.3.11",
     "@mui/icons-material": "^5.15.4",
     "@mui/joy": "^5.0.0-beta.22",
@@ -35,8 +36,11 @@
     "@types/node": "20.11.0",
     "@types/react": "18.0.1",
     "@types/react-dom": "18",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
+    "eslint-plugin-react": "^7.33.2",
     "typescript": "5.3.3"
   },
   "resolutions": {

@@ -1,9 +1,10 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
 import { arrayCashbackColumns } from "../../../utils/constanst";
+import { ICashbackDataColumn, ICushback } from "../../models";
 
 interface Props {
-  data: any;
+  data: ICushback;
 }
 
 export const CashbackTable: React.FC<Props> = ({ data }) => {
@@ -54,9 +55,9 @@ export const CashbackTable: React.FC<Props> = ({ data }) => {
               textAlign={"center"}
               gap={9}
             >
-              {arrayCashbackColumns.map((titles) => {
+              {arrayCashbackColumns.map((titles, index: number) => {
                 return (
-                  <Box display={"flex"}>
+                  <Box display={"flex"} key={index}>
                     <Typography>{titles}</Typography>
                   </Box>
                 );
@@ -71,9 +72,9 @@ export const CashbackTable: React.FC<Props> = ({ data }) => {
               textAlign={"left"}
               marginTop={"14px"}
             >
-              {data.column1?.map((item: any) => {
+              {data.column1?.map((item: ICashbackDataColumn, index: number) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item.cashback}
                     <br></br>
                     <br></br>
@@ -88,9 +89,9 @@ export const CashbackTable: React.FC<Props> = ({ data }) => {
               textAlign={"left"}
               marginTop={"14px"}
             >
-              {data.column2?.map((item: any) => {
+              {data.column2?.map((item: ICashbackDataColumn, index: number) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item.cashback}
                     <br></br>
                     <br></br>

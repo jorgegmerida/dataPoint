@@ -2,13 +2,6 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -20,24 +13,35 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useRouter } from "next/router";
 import { useWindowDataLayer } from "../../../utils/useWindowDataLayer";
 import { evInteraction } from "../../models";
+import { IconButton, useMediaQuery } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { SlideMenu } from "../SlideMenu";
 
 interface Props {
   window?: () => Window;
 }
 
-const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
-
-export const Header: React.FC<Props> = (props: Props) => {
-  const { window } = props;
-
+export const Header: React.FC<Props> = () => {
   const windowDataLayer = useWindowDataLayer();
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const mobileCheck = useMediaQuery("(min-width: 700px)");
 
   const router = useRouter();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const [show, setShow] = React.useState<boolean>(false);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+
+  const [selected, setSelected] = React.useState({
+    dashboard: false,
+    clientes: false,
+    reglas: false,
+  });
 
   const open = Boolean(anchorEl);
 
@@ -48,12 +52,10 @@ export const Header: React.FC<Props> = (props: Props) => {
     setAnchorEl(null);
   };
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+    setShow((prev) => !prev);
   };
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   const dataLayer1: evInteraction = {
     event: "evInteraction",
@@ -72,102 +74,191 @@ export const Header: React.FC<Props> = (props: Props) => {
       <CssBaseline />
       <AppBar component="nav" color="inherit">
         <Toolbar sx={{ justifyContent: "right" }}>
-          <Stack spacing={4} direction="row">
-            <Button
-              variant="contained"
-              style={{
-                background: "#644BBA",
-                borderRadius: " 100px",
-                color: "#FFF",
-                textAlign: "center",
-                fontFamily: "Roboto",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-                letterSpacing: "0.1px",
-                textTransform: "capitalize",
+          {mobileCheck ? (
+            <Stack spacing={4} direction="row">
+              <Button
+                style={{
+                  background: selected.dashboard ? "#644BBA" : "#FFF",
+                  borderRadius: " 100px",
+                  color: selected.dashboard ? "#FFF" : "#644BBA",
+                  textAlign: "center",
+                  fontFamily: "Roboto",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  letterSpacing: "0.1px",
+                  textTransform: "capitalize",
+                  width: "117px",
+                  height: "40px",
+                }}
+                onClick={() => {
+                  setSelected({
+                    ...selected,
+                    dashboard: !selected.dashboard,
+                    clientes: false,
+                    reglas: false,
+                  });
+                  router.push("/dashboard");
+                  windowDataLayer({ ...dataLayer1, label: "Dashboard" });
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    fontFamily: "Roboto",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    letterSpacing: "0.1px",
+                  }}
+                >
+                  Dashboard
+                </Typography>
+              </Button>
+              <Button
+                style={{
+                  background: selected.clientes ? "#644BBA" : "#FFF",
+                  borderRadius: " 100px",
+                  color: selected.clientes ? "#FFF" : "#644BBA",
+                  textAlign: "center",
+                  fontFamily: "Roboto",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  letterSpacing: "0.1px",
+                  textTransform: "capitalize",
+                  width: "52px",
+                }}
+                onClick={() => {
+                  setSelected({
+                    ...selected,
+                    clientes: !selected.clientes,
+                    dashboard: false,
+                    reglas: false,
+                  });
+                  windowDataLayer({ ...dataLayer1, label: "Clientes" });
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    fontFamily: "Roboto",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    letterSpacing: "0.1px",
+                  }}
+                >
+                  Clientes
+                </Typography>
+              </Button>
+              <Button
+                style={{
+                  background: selected.reglas ? "#644BBA" : "#FFF",
+                  borderRadius: " 100px",
+                  color: selected.reglas ? "#FFF" : "#644BBA",
+                  textAlign: "center",
+                  fontFamily: "Roboto",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  letterSpacing: "0.1px",
+                  textTransform: "capitalize",
+                  width: "172px",
+                  height: "40px",
+                }}
+                onClick={() => {
+                  setSelected({
+                    ...selected,
+                    reglas: !selected.reglas,
+                    dashboard: false,
+                    clientes: false,
+                  });
+                  windowDataLayer({
+                    ...dataLayer1,
+                    label: "Reglas De Acumulación",
+                  });
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    fontFamily: "Roboto",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    letterSpacing: "0.1px",
+                  }}
+                >
+                  Reglas de acumulación
+                </Typography>
+              </Button>
+            </Stack>
+          ) : (
+            <></>
+          )}
+          <Box
+            sx={{
+              position: "absolute",
+            }}
+          >
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{
+                display: { xs: "flex", md: "none" },
               }}
-              onClick={() => {
-                router.push("/dashboard");
-                windowDataLayer({ ...dataLayer1, label: "Dashboard" });
-              }}
+              onClick={handleOpenNavMenu}
             >
-              Dashboard
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                background: "#644BBA",
-                borderRadius: " 100px",
-                color: "#FFF",
-                textAlign: "center",
-                fontFamily: "Roboto",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-                letterSpacing: "0.1px",
-                textTransform: "capitalize",
-              }}
-              onClick={() => {
-                windowDataLayer({ ...dataLayer1, label: "Clientes" });
-              }}
-            >
-              Clientes
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                background: "#644BBA",
-                borderRadius: " 100px",
-                color: "#FFF",
-                textAlign: "center",
-                fontFamily: "Roboto",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-                letterSpacing: "0.1px",
-                textTransform: "capitalize",
-              }}
-              onClick={() => {
-                windowDataLayer({
-                  ...dataLayer1,
-                  label: "Reglas De Acumulación",
-                });
-              }}
-            >
-              Reglas de acumulación
-            </Button>
-          </Stack>
-          <Box>
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
+          <Box display="flex" position={mobileCheck ? "relative" : "absolute"}>
             <Typography
               component="div"
               style={{
                 color: "#1C1B1E",
                 textAlign: "center",
                 fontFamily: "Roboto",
-                fontSize: "16px",
+                fontSize: mobileCheck ? "16px" : "12px",
                 fontStyle: "normal",
                 fontWeight: 500,
                 lineHeight: "24px" /* 150% */,
+                width: "200px",
               }}
-              sx={{ display: { marginLeft: "320px" } }}
+              sx={{
+                marginLeft: mobileCheck ? "320px" : "-360px",
+              }}
             >
               Pamela Rojas González
             </Typography>
           </Box>
           <Button
-            sx={{ color: "#1C1B1E" }}
+            sx={{
+              color: "#1C1B1E",
+              display: "flex",
+              position: mobileCheck ? "relative" : "absolute",
+            }}
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{ color: "#1C1B1E", marginRight: "200px" }}
+            style={{
+              color: "#1C1B1E",
+              marginRight: mobileCheck ? "200px" : "150px",
+            }}
           >
-            <KeyboardArrowDownIcon sx={{ marginLeft: "10px" }} />{" "}
+            <KeyboardArrowDownIcon sx={{ marginLeft: "10px" }} />
           </Button>
 
           <Menu
@@ -187,6 +278,7 @@ export const Header: React.FC<Props> = (props: Props) => {
               <Typography sx={{ marginLeft: "10px" }}>Cerrar sesión</Typography>
             </MenuItem>
           </Menu>
+          {show && !mobileCheck && <SlideMenu show={show} />}
         </Toolbar>
       </AppBar>
 

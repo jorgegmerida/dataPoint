@@ -1,15 +1,16 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
 import { arrayMoneyColumns } from "../../../utils/constanst";
+import { IMoneyColumn, IMoneyData } from "../../models";
 
 interface Props {
-  data: any;
+  data: IMoneyData;
 }
 
 export const MoneyTable: React.FC<Props> = ({ data }) => {
-  let acumulateArrayMoney: any = [];
-  data.column1?.map((itemCol1: any, indexColumn1: number) => {
-    return data.column2?.map((itemCol2: any, indexColumn2: number) => {
+  const acumulateArrayMoney: number[] = [];
+  data.column1?.map((itemCol1: IMoneyColumn, indexColumn1: number) => {
+    return data.column2?.map((itemCol2: IMoneyColumn, indexColumn2: number) => {
       if (indexColumn1 === indexColumn2) {
         const acumulate = itemCol1.dinero + itemCol2.dinero;
         return acumulateArrayMoney.push(acumulate);
@@ -62,9 +63,9 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
               textAlign={"center"}
               gap={9}
             >
-              {arrayMoneyColumns.map((titles) => {
+              {arrayMoneyColumns.map((titles, index: number) => {
                 return (
-                  <Box display={"flex"}>
+                  <Box display={"flex"} key={index}>
                     <Typography>{titles}</Typography>
                   </Box>
                 );
@@ -79,9 +80,9 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
               textAlign={"left"}
               marginTop={"14px"}
             >
-              {data.column1?.map((item: any) => {
+              {data.column1?.map((item: IMoneyColumn, index: number) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item.dinero}
                     <br></br>
                     <br></br>
@@ -96,9 +97,9 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
               textAlign={"left"}
               marginTop={"14px"}
             >
-              {data.column2?.map((item: any) => {
+              {data.column2?.map((item: IMoneyColumn, index: number) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item.dinero}
                     <br></br>
                     <br></br>
@@ -113,9 +114,9 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
               textAlign={"left"}
               marginTop={"14px"}
             >
-              {acumulateArrayMoney?.map((item: any) => {
+              {acumulateArrayMoney?.map((item, index) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item}
                     <br></br>
                     <br></br>

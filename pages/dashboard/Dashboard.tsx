@@ -1,6 +1,4 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
-import { useRouter } from "next/router";
 import {
   Box,
   Button,
@@ -11,6 +9,7 @@ import {
   Menu,
   MenuItem,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -30,16 +29,19 @@ import { CustomersTable } from "../../src/components/UI/CustomersTable";
 import { TransactionTable } from "../../src/components/UI/TransactionsTable";
 import { MoneyTable } from "../../src/components/UI/MoneyTable";
 import { CashbackTable } from "../../src/components/UI/CashbackTable";
+import { ICustomer } from "../../src/models";
 
 interface Props {}
 
 const Dashboard: React.FC<Props> = () => {
   // const [showData, setShowData] = React.useState(true);
-  const { isReady } = useRouter();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   const fetcher = useGetFetcher();
+
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
 
   const { data: dataCustomers } = useQuery("dataCustomers", () =>
     fetcher("/api/dataCustomers")
@@ -108,11 +110,12 @@ const Dashboard: React.FC<Props> = () => {
     >
       <Box display={"flex"} justifyContent={"space-around"}>
         <Box
-          display={"flex"}
+          display={mobileCheck ? "flex" : "inline-block"}
           flexDirection={"row"}
-          justifyContent={"space-between"}
-          gap={"20px"}
-          marginRight={"300px"}
+          justifyContent={"center"}
+          gap={2}
+          marginRight={mobileCheck ? "300px" : "auto"}
+          marginLeft={mobileCheck ? "" : "50px"}
           marginTop={"-20px"}
         >
           <ToggleButton
@@ -171,7 +174,6 @@ const Dashboard: React.FC<Props> = () => {
                 max: false,
               });
             }}
-            // onClick={() => handleClickToggle("Este Mes")}
           >
             <Typography color={"#48454E"}>Este Mes</Typography>
           </ToggleButton>
@@ -191,7 +193,6 @@ const Dashboard: React.FC<Props> = () => {
                 max: false,
               });
             }}
-            // onClick={() => handleClickToggle("6M")}
           >
             <Typography color={"#48454E"}> 6M</Typography>
           </ToggleButton>
@@ -268,7 +269,7 @@ const Dashboard: React.FC<Props> = () => {
           id="basic-menu"
           anchorEl={anchorEl}
           open={open}
-          onClose={(event) => handleClose()}
+          onClose={() => handleClose()}
           MenuListProps={{
             "aria-labelledby": "basic-button",
           }}
@@ -282,7 +283,7 @@ const Dashboard: React.FC<Props> = () => {
           </MenuItem>
         </Menu>
 
-        <Box marginRight={"500px"} display={"flex"}>
+        <Box marginRight={"500px"} display={mobileCheck ? "flex" : "none"}>
           <VisibilityIcon sx={{ color: "#644BBA" }} />
           <ToggleButton
             value="check"
@@ -307,9 +308,13 @@ const Dashboard: React.FC<Props> = () => {
             </Typography>
           </ToggleButton>
         </Box>
-        <FloatCards>
-          <Cards />
-        </FloatCards>
+        {mobileCheck ? (
+          <FloatCards>
+            <Cards />
+          </FloatCards>
+        ) : (
+          <></>
+        )}
         <div
           style={{
             display: "flex",
@@ -331,11 +336,17 @@ const Dashboard: React.FC<Props> = () => {
       <Box
         display={"flex"}
         flexDirection={"row"}
-        justifyContent={"space-around"}
-        marginLeft={"-200px"}
+        justifyContent={mobileCheck ? "space-around" : "center"}
+        marginLeft={mobileCheck ? "-200px" : ""}
         marginTop={"84px"}
       >
-        <Box display={"flex"} gap={2} marginLeft={"-150px"}>
+        <Box
+          display={"flex"}
+          flexDirection={mobileCheck ? "row" : "column"}
+          gap={2}
+          marginLeft={mobileCheck ? "-150px" : ""}
+          marginRight={mobileCheck ? "" : "25px"}
+        >
           <ToggleButton
             value="check"
             selected={customersToggle}
@@ -385,7 +396,12 @@ const Dashboard: React.FC<Props> = () => {
             </Typography>
           </ToggleButton>
         </Box>
-        <Box display={"flex"} gap={2} marginRight={"150px"}>
+        <Box
+          display={"flex"}
+          flexDirection={mobileCheck ? "row" : "column"}
+          gap={2}
+          marginRight={mobileCheck ? "150px" : "70px"}
+        >
           <ToggleButton
             value="check"
             selected={dineroToggle}
@@ -488,25 +504,29 @@ const Dashboard: React.FC<Props> = () => {
                       justifyContent={"space-between"}
                     >
                       {valueTogle === "HOY" && selected.hoy ? (
-                        dataCustomers.hoursBetween?.map((item: any) => {
-                          return (
-                            <Box>
-                              {item.name}
-                              <br></br>
-                              <br></br>
-                            </Box>
-                          );
-                        })
+                        dataCustomers.hoursBetween?.map(
+                          (item: ICustomer, index: number) => {
+                            return (
+                              <Box key={index}>
+                                {item.name}
+                                <br></br>
+                                <br></br>
+                              </Box>
+                            );
+                          }
+                        )
                       ) : valueTogle === "7D" && selected.semana ? (
-                        dataCustomers.days?.map((item: any) => {
-                          return (
-                            <Box>
-                              {item.name}
-                              <br></br>
-                              <br></br>
-                            </Box>
-                          );
-                        })
+                        dataCustomers.days?.map(
+                          (item: ICustomer, index: number) => {
+                            return (
+                              <Box key={index}>
+                                {item.name}
+                                <br></br>
+                                <br></br>
+                              </Box>
+                            );
+                          }
+                        )
                       ) : (
                         <></>
                       )}

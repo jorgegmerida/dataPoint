@@ -7,6 +7,7 @@ import {
   IconButtonProps,
   Typography,
   styled,
+  useMediaQuery,
 } from "@mui/material";
 import { Switch } from "../Switch";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -32,15 +33,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export const Cards: React.FC = () => {
   const fetcher = useGetFetcher();
 
-  const { data, status } = useQuery("dataPerMonths", () =>
+  const mobileCheck = useMediaQuery("(max-width: 600px)");
+
+  const { data } = useQuery("dataPerMonths", () =>
     fetcher("/api/dataPerMonths")
   );
-
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const [expanded, setExpanded] = React.useState(false);
 

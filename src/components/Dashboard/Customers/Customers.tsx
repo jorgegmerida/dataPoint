@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import {
   BarChart,
   Bar,
@@ -7,7 +7,6 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
 
@@ -24,7 +23,9 @@ export const Customers: React.FC<Props> = () => {
 
   const fetcher = useGetFetcher();
 
-  const { data, status } = useQuery("dataCustomers", () =>
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
+
+  const { data } = useQuery("dataCustomers", () =>
     fetcher("/api/dataCustomers")
   );
 
@@ -36,49 +37,56 @@ export const Customers: React.FC<Props> = () => {
 
   if (data !== undefined) {
     Object.values(data.hours).map((item) => {
-      if ((item as { [key: string]: number })["Clientes totales"] > 0) {
-      } else {
+      if ((item as { [key: string]: number })["clientesTotales"] < 1) {
         clientesT += 1;
       }
-      if ((item as { [key: string]: number })["Clientes nuevos"] > 0) {
-      } else {
+      if ((item as { [key: string]: number })["clientesNuevos"] < 1) {
         clientesN += 1;
       }
-      if ((item as { [key: string]: number })["Compraron"] > 0) {
-      } else {
+      if ((item as { [key: string]: number })["compraron"] < 1) {
         clientesC += 1;
       }
-      if ((item as { [key: string]: number })["No compraron"] > 0) {
-      } else {
+      if ((item as { [key: string]: number })["noCompraron"] < 1) {
         clientesNC += 1;
       }
     });
   }
-  console.log(clientesT, clientesN, clientesC, clientesNC);
+
   return (
     <>
       {showData && data !== undefined && (
-        <Box display={"inline-block"} marginTop={"250px"} marginLeft={"50px"}>
-          <BarChart width={1300} height={400} data={data.hours!}>
+        <Box
+          display={"inline-block"}
+          justifyContent={"center"}
+          alignContent={"center"}
+          textAlign={"center"}
+          marginTop={mobileCheck ? "250px" : "150px"}
+          marginLeft={mobileCheck ? "50px" : ""}
+        >
+          <BarChart
+            width={mobileCheck ? 1300 : 300}
+            height={mobileCheck ? 400 : 250}
+            data={data.hours!}
+          >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
             <Legend />
             <Bar
-              dataKey="Clientes totales"
+              dataKey="clientesTotales"
               fill={clientesT < 1 ? "#EB3535" : "rgb(235,53,53,0.4)"}
             />
             <Bar
-              dataKey="Clientes nuevos"
+              dataKey="clientesNuevos"
               fill={clientesN < 1 ? "#EB7635" : "rgb(235,53,53,0.4)"}
             />
             <Bar
-              dataKey="Compraron"
+              dataKey="compraron"
               fill={clientesC < 1 ? "#358DEB" : "rgb(53,141,235,0.4)"}
             />
             <Bar
-              dataKey="No compraron"
+              dataKey="noCompraron"
               fill={clientesNC < 1 ? "#2DCF5A" : "rgb(45,207,90,0.4)"}
             />
           </BarChart>

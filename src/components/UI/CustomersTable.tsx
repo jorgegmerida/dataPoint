@@ -1,21 +1,22 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
 import { arrayCustomersColumns } from "../../../utils/constanst";
+import { ICustomer, ICustomerData } from "../../models";
 
 interface Props {
-  data: any;
+  data: ICustomerData;
 }
 
 export const CustomersTable: React.FC<Props> = ({ data }) => {
-  let acumulateArrayCustomers: any = [];
-  data.Column1?.map((itemCol1: any, indexColumn1: number) => {
-    return data.Column2?.map((itemCol2: any, indexColumn2: number) => {
-      return data.Column3?.map((itemCol3: any, indexColumn3: number) => {
+  const acumulateArrayCustomers: number[] = [];
+  data.Column1?.map((itemCol1: ICustomer, indexColumn1: number) => {
+    return data.Column2?.map((itemCol2: ICustomer, indexColumn2: number) => {
+      return data.Column3?.map((itemCol3: ICustomer, indexColumn3: number) => {
         if (indexColumn1 === indexColumn2 && indexColumn2 === indexColumn3) {
           const acumulate =
-            itemCol1["Clientes nuevos"] +
-            itemCol2["Clientes nuevos"] +
-            itemCol3["Clientes nuevos"];
+            itemCol1["clientesNuevos"] +
+            itemCol2["clientesNuevos"] +
+            itemCol3["clientesNuevos"];
           return acumulateArrayCustomers.push(acumulate);
         }
       });
@@ -66,11 +67,11 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"row"}
               justifyContent={"space-between"}
               textAlign={"center"}
-              gap={9}
+              gap={8.5}
             >
-              {arrayCustomersColumns.map((titles) => {
+              {arrayCustomersColumns.map((titles, index: number) => {
                 return (
-                  <Box display={"flex"}>
+                  <Box display={"flex"} key={index}>
                     <Typography>{titles}</Typography>
                   </Box>
                 );
@@ -78,17 +79,17 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
             </Box>
           </Box>
           <br></br>
-          <Box display={"flex"} gap={16} marginLeft={"16px"}>
+          <Box display={"flex"} gap={14} marginLeft={"26px"}>
             <Box
               display={"flex"}
               flexDirection={"column"}
               justifyContent={"left"}
               textAlign={"left"}
             >
-              {data.Column1?.map((item: any) => {
+              {data.Column1?.map((item: ICustomer, index: number) => {
                 return (
-                  <Box>
-                    {item["Clientes nuevos"]}
+                  <Box key={index}>
+                    {item["clientesNuevos"]}
                     <br></br>
                     <br></br>
                   </Box>
@@ -101,10 +102,10 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               justifyContent={"left"}
               textAlign={"left"}
             >
-              {data.Column2?.map((item: any) => {
+              {data.Column2?.map((item: ICustomer, index: number) => {
                 return (
-                  <Box>
-                    {item["Clientes nuevos"]}
+                  <Box key={index}>
+                    {item["clientesNuevos"]}
                     <br></br>
                     <br></br>
                   </Box>
@@ -117,10 +118,10 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               justifyContent={"left"}
               textAlign={"left"}
             >
-              {data.Column3?.map((item: any) => {
+              {data.Column3?.map((item: ICustomer, index: number) => {
                 return (
-                  <Box>
-                    {item["Clientes nuevos"]}
+                  <Box key={index}>
+                    {item["clientesNuevos"]}
                     <br></br>
                     <br></br>
                   </Box>
@@ -132,11 +133,10 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"column"}
               justifyContent={"center"}
               textAlign={"center"}
-              marginRight={"16px"}
             >
-              {acumulateArrayCustomers.map((item: any) => {
+              {acumulateArrayCustomers.map((item, index: number) => {
                 return (
-                  <Box>
+                  <Box key={index}>
                     {item}
                     <br></br>
                     <br></br>

@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { useQuery } from "react-query";
 import { useGetFetcher } from "../../../hooks/useGetFetcher";
 
@@ -19,6 +19,8 @@ interface Props {}
 export const Pulso: React.FC<Props> = () => {
   const [showData, setShowData] = React.useState(false);
   const fetcher = useGetFetcher();
+
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
 
   const { data, status } = useQuery("dataPulso", () =>
     fetcher("/api/dataPulso")
@@ -30,8 +32,16 @@ export const Pulso: React.FC<Props> = () => {
   return (
     <>
       {showData && status === "success" && (
-        <Box display={"inline-block"} marginTop={"250px"} marginLeft={"50px"}>
-          <ComposedChart width={1300} height={400} data={data}>
+        <Box
+          display={"inline-block"}
+          marginTop={mobileCheck ? "250px" : "150px"}
+          marginLeft={mobileCheck ? "50px" : ""}
+        >
+          <ComposedChart
+            width={mobileCheck ? 1300 : 300}
+            height={mobileCheck ? 400 : 200}
+            data={data}
+          >
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />

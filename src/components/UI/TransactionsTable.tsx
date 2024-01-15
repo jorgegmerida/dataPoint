@@ -1,8 +1,9 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import * as React from "react";
+import { ITransactionColumn, ITransactionData } from "../../models";
 
 interface Props {
-  data: any;
+  data: ITransactionData;
 }
 
 export const TransactionTable: React.FC<Props> = ({ data }) => {
@@ -51,7 +52,7 @@ export const TransactionTable: React.FC<Props> = ({ data }) => {
               justifyContent={"center"}
               marginTop={"20px"}
             >
-              {data.days.map((item: any) => {
+              {data.days.map((item: ITransactionColumn) => {
                 return (
                   <>
                     <Typography>{item.transaccion}</Typography>
