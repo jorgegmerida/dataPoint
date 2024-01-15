@@ -71,6 +71,21 @@ export interface ITransactionData {
   ];
 }
 
+export interface IDataPerMonths {
+  title: string;
+  subtilte1: string;
+  subtilte11: number;
+  subtilte2: string;
+  subtilte22: number;
+  subtilte3: string;
+  subtilte33: number;
+  subtilte4: string;
+  subtilte44: string;
+  subtilte441: number;
+  subtilte444: string;
+  subtilte4441: number;
+}
+
 export interface ITransactionColumn {
   name: string;
   transaccion: number;

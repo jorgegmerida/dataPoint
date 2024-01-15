@@ -5,10 +5,10 @@ interface IDashboards {
     Customers: boolean;
     Pulso: boolean;
   };
-  setDashboard: (Dashboards: { Customers: boolean; Pulso: boolean }) => any;
+  setDashboard: (Dashboards: { Customers: boolean; Pulso: boolean }) => void;
 }
 
-export const useSelectDashboards = create<IDashboards>((set, get) => ({
+export const useSelectDashboards = create<IDashboards>((set) => ({
   Dashboards: {
     Customers: false,
     Pulso: false,

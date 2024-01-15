@@ -15,12 +15,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useQuery } from "react-query";
 import { useGetFetcher } from "../../hooks/useGetFetcher";
+import { IDataPerMonths } from "../../models";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
 const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
+  const { ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -85,10 +86,10 @@ export const Cards: React.FC = () => {
         sx={{ marginTop: "20px" }}
       >
         {data !== undefined &&
-          data.map((item: any) => {
+          data.map((item: IDataPerMonths, index: number) => {
             return (
-              <>
-                <Card sx={{ width: 345 }}>
+              <Box key={index}>
+                <Card sx={{ width: 345 }} key={index}>
                   <CardHeader
                     title={item.title}
                     sx={{
@@ -185,7 +186,7 @@ export const Cards: React.FC = () => {
                   </CardContent>
                 </Card>
                 <br></br>
-              </>
+              </Box>
             );
           })}
       </Collapse>
