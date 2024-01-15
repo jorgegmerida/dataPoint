@@ -56,21 +56,26 @@ export const Cards: React.FC = () => {
       justifyItems={"center"}
     >
       <Box display={"flex"} flexDirection={"row"}>
-        <Box marginRight={"60px"}>
+        <Box
+          marginRight={mobileCheck ? "80px" : "60px"}
+          marginTop={mobileCheck ? "150px" : ""}
+        >
           <Switch />
         </Box>
-        <Box>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon
-              sx={{ width: " 24px", height: "24px", color: "#000000" }}
-            />
-          </ExpandMore>
-        </Box>
+        {!mobileCheck && (
+          <Box sx={{ marginRight: "20px" }}>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon
+                sx={{ width: " 24px", height: "24px", color: "#000000" }}
+              />
+            </ExpandMore>
+          </Box>
+        )}
       </Box>
 
       <Collapse

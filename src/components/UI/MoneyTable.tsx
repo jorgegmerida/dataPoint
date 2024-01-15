@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import * as React from "react";
 import { arrayMoneyColumns } from "../../../utils/constanst";
 import { IMoneyColumn, IMoneyData } from "../../models";
@@ -8,6 +15,8 @@ interface Props {
 }
 
 export const MoneyTable: React.FC<Props> = ({ data }) => {
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
+
   const acumulateArrayMoney: number[] = [];
   data.column1?.map((itemCol1: IMoneyColumn, indexColumn1: number) => {
     return data.column2?.map((itemCol2: IMoneyColumn, indexColumn2: number) => {
@@ -22,8 +31,9 @@ export const MoneyTable: React.FC<Props> = ({ data }) => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      marginLeft={"20px"}
+      marginLeft={mobileCheck ? "20px" : "-80px"}
       marginTop={"40px"}
+      width={mobileCheck ? "auto" : "330px"}
     >
       <Card
         sx={{

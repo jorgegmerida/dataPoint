@@ -3,7 +3,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import StarsIcon from "@mui/icons-material/Stars";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
-import { Box, Button } from "@mui/material";
+import { Box, Button, useMediaQuery } from "@mui/material";
 import { SwitchOptions } from "../../../utils/constanst";
 import { useSelectDashboards } from "../../stores/useSelectDashboards";
 import { evInteraction } from "../../models";
@@ -13,7 +13,10 @@ interface Props {}
 
 export const Switch: React.FC<Props> = () => {
   const windowDataLayer = useWindowDataLayer();
+
   const { Dashboards, setDashboard } = useSelectDashboards();
+
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
 
   const [activeOption, setActiveOption] = React.useState<SwitchOptions>(
     SwitchOptions.OPTION1
@@ -52,7 +55,7 @@ export const Switch: React.FC<Props> = () => {
           border: "1.5px solid #644BBA",
           justifyContent: "center",
           alignItems: "center",
-          width: "250px",
+          width: mobileCheck ? "250px" : "200px",
           height: "max-content",
           padding: "1px 1px",
         }}

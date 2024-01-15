@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import * as React from "react";
 import { arrayCashbackColumns } from "../../../utils/constanst";
 import { ICashbackDataColumn, ICushback } from "../../models";
@@ -8,14 +15,15 @@ interface Props {
 }
 
 export const CashbackTable: React.FC<Props> = ({ data }) => {
-  // console.log();
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
 
   return (
     <Box
       display={"flex"}
       justifyContent={"center"}
-      marginLeft={"20px"}
       marginTop={"40px"}
+      marginLeft={mobileCheck ? "20px" : "-80px"}
+      width={mobileCheck ? "auto" : "330px"}
     >
       <Card
         sx={{

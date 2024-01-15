@@ -308,13 +308,10 @@ const Dashboard: React.FC<Props> = () => {
             </Typography>
           </ToggleButton>
         </Box>
-        {mobileCheck ? (
-          <FloatCards>
-            <Cards />
-          </FloatCards>
-        ) : (
-          <></>
-        )}
+
+        <FloatCards>
+          <Cards />
+        </FloatCards>
         <div
           style={{
             display: "flex",
@@ -326,25 +323,26 @@ const Dashboard: React.FC<Props> = () => {
             alignContent: "right",
             float: "right",
             right: "0",
-            zIndex: 1,
-            marginRight: "120px",
-            marginTop: "-10px",
+            zIndex: mobileCheck ? 1 : 0,
+            marginRight: mobileCheck ? "120px" : "",
+            marginTop: mobileCheck ? "-10px" : "120px",
           }}
           id="Cards"
         />
       </Box>
+
       <Box
         display={"flex"}
         flexDirection={"row"}
         justifyContent={mobileCheck ? "space-around" : "center"}
         marginLeft={mobileCheck ? "-200px" : ""}
-        marginTop={"84px"}
+        marginTop={mobileCheck ? "84px" : "40px"}
       >
         <Box
           display={"flex"}
           flexDirection={mobileCheck ? "row" : "column"}
           gap={2}
-          marginLeft={mobileCheck ? "-150px" : ""}
+          marginLeft={mobileCheck ? "-150px" : "50px"}
           marginRight={mobileCheck ? "" : "25px"}
         >
           <ToggleButton
@@ -431,6 +429,7 @@ const Dashboard: React.FC<Props> = () => {
             selected={cashbackToggle}
             onChange={() => {
               setSelectedCashbackToggle(!cashbackToggle);
+              console.log("object");
             }}
             sx={{ width: "auto", height: "32px" }}
           >
@@ -452,6 +451,7 @@ const Dashboard: React.FC<Props> = () => {
           </ToggleButton>
         </Box>
       </Box>
+
       {Dashboards.Customers ? <Customers /> : <Pulso />}
       {Dashboards.Customers && (
         <Box display={"flex"} flexDirection={"row"}>
@@ -536,11 +536,16 @@ const Dashboard: React.FC<Props> = () => {
               </Card>
             )}
           </Box>
-
-          {customersToggle && <CustomersTable data={dataCustomers} />}
-          {transactionToggle && <TransactionTable data={dataTransactions} />}
-          {dineroToggle && <MoneyTable data={dataMoney} />}
-          {cashbackToggle && <CashbackTable data={dataCashback} />}
+          <Box
+            display={"flex"}
+            justifyContent={"center"}
+            flexDirection={!mobileCheck ? "column" : "row"}
+          >
+            {customersToggle && <CustomersTable data={dataCustomers} />}
+            {transactionToggle && <TransactionTable data={dataTransactions} />}
+            {dineroToggle && <MoneyTable data={dataMoney} />}
+            {cashbackToggle && <CashbackTable data={dataCashback} />}
+          </Box>
         </Box>
       )}
     </Box>

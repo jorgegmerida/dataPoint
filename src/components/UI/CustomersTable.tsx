@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import * as React from "react";
 import { arrayCustomersColumns } from "../../../utils/constanst";
 import { ICustomer, ICustomerData } from "../../models";
@@ -8,6 +15,8 @@ interface Props {
 }
 
 export const CustomersTable: React.FC<Props> = ({ data }) => {
+  const mobileCheck = useMediaQuery("(min-width: 600px)");
+
   const acumulateArrayCustomers: number[] = [];
   data.Column1?.map((itemCol1: ICustomer, indexColumn1: number) => {
     return data.Column2?.map((itemCol2: ICustomer, indexColumn2: number) => {
@@ -27,9 +36,9 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      marginLeft={"20px"}
+      marginLeft={mobileCheck ? "20px" : "-80px"}
       marginTop={"40px"}
-      width={"auto"}
+      width={mobileCheck ? "auto" : "330px"}
     >
       <Card
         sx={{
@@ -67,7 +76,7 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
               flexDirection={"row"}
               justifyContent={"space-between"}
               textAlign={"center"}
-              gap={8.5}
+              gap={mobileCheck ? 8.5 : 1.5}
             >
               {arrayCustomersColumns.map((titles, index: number) => {
                 return (
@@ -79,7 +88,11 @@ export const CustomersTable: React.FC<Props> = ({ data }) => {
             </Box>
           </Box>
           <br></br>
-          <Box display={"flex"} gap={14} marginLeft={"26px"}>
+          <Box
+            display={"flex"}
+            gap={mobileCheck ? 14 : 7.5}
+            marginLeft={"26px"}
+          >
             <Box
               display={"flex"}
               flexDirection={"column"}
