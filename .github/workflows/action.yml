@@ -1,0 +1,24 @@
+name: SimplePipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lintest:
+    name: Lint
+    runs-on: manjaro-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          echo "Running Installing Dependencies...
+          npm install yarn -g
+          yarn install"
+      - name: Run Linting
+        run: |
+          echo "Running Linting Test...
+          npm run lint"
+        env:
+          CI: true
