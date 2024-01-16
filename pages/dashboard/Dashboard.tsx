@@ -937,80 +937,84 @@ const Dashboard: React.FC<Props> = () => {
             marginLeft={"100px"}
             marginTop={"40px"}
           >
-            {(selected.hoy || selected.semana) && customersToggle && (
-              <Card
-                sx={{
-                  display: "flex",
-                  maxWidth: "auto",
-                  padding: "15px",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  alignSelf: "stretch",
-                  borderradius: "10px",
-                  background: "#E6E1E6",
-                }}
-              >
-                <CardHeader
-                  title={valueTogle}
+            {(selected.hoy || selected.semana) &&
+              (customersToggle ||
+                transactionToggle ||
+                dineroToggle ||
+                cashbackToggle) && (
+                <Card
                   sx={{
-                    textAlign: "center",
-                    color: "#000",
-                    fontFamily: "Roboto",
-                    fontSize: "19px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "24px",
+                    display: "flex",
+                    maxWidth: "auto",
+                    padding: "15px",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderradius: "10px",
+                    background: "#E6E1E6",
                   }}
-                />
-                <CardContent>
-                  <Box
-                    display={"flex"}
-                    flexDirection={"column"}
-                    justifyContent={"center"}
-                    textAlign={"center"}
-                  >
-                    <Typography color="text.secondary">
-                      {selected.hoy ? "Horas" : "Semana"}
-                    </Typography>
-
-                    <br></br>
+                >
+                  <CardHeader
+                    title={valueTogle}
+                    sx={{
+                      textAlign: "center",
+                      color: "#000",
+                      fontFamily: "Roboto",
+                      fontSize: "19px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "24px",
+                    }}
+                  />
+                  <CardContent>
                     <Box
                       display={"flex"}
                       flexDirection={"column"}
-                      justifyContent={"space-between"}
+                      justifyContent={"center"}
+                      textAlign={"center"}
                     >
-                      {selected.hoy ? (
-                        dataCustomers?.hoursBetween!.map(
-                          (item: ICustomer, index: number) => {
-                            return (
-                              <Box key={index}>
-                                {item.name}
-                                <br></br>
-                                <br></br>
-                              </Box>
-                            );
-                          }
-                        )
-                      ) : selected.semana ? (
-                        dataCustomers?.days?.map(
-                          (item: ICustomer, index: number) => {
-                            return (
-                              <Box key={index}>
-                                {item.name}
-                                <br></br>
-                                <br></br>
-                              </Box>
-                            );
-                          }
-                        )
-                      ) : (
-                        <></>
-                      )}
+                      <Typography color="text.secondary">
+                        {selected.hoy ? "Horas" : "Semana"}
+                      </Typography>
+
+                      <br></br>
+                      <Box
+                        display={"flex"}
+                        flexDirection={"column"}
+                        justifyContent={"space-between"}
+                      >
+                        {selected.hoy ? (
+                          dataCustomers?.hoursBetween!.map(
+                            (item: ICustomer, index: number) => {
+                              return (
+                                <Box key={index}>
+                                  {item.name}
+                                  <br></br>
+                                  <br></br>
+                                </Box>
+                              );
+                            }
+                          )
+                        ) : selected.semana ? (
+                          dataCustomers?.days?.map(
+                            (item: ICustomer, index: number) => {
+                              return (
+                                <Box key={index}>
+                                  {item.name}
+                                  <br></br>
+                                  <br></br>
+                                </Box>
+                              );
+                            }
+                          )
+                        ) : (
+                          <></>
+                        )}
+                      </Box>
                     </Box>
-                  </Box>
-                </CardContent>
-              </Card>
-            )}
+                  </CardContent>
+                </Card>
+              )}
           </Box>
           <Box
             display={"flex"}
