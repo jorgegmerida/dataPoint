@@ -88,7 +88,7 @@ export const Customers: React.FC<Props> = ({
           alignContent={"center"}
           textAlign={"center"}
           marginTop={mobileCheck ? "250px" : "120px"}
-          marginLeft={mobileCheck ? (selected.ytd ? "120px" : "40px") : "50px"}
+          marginLeft={mobileCheck ? (selected.ytd ? "120px" : "40px") : "30px"}
         >
           {!selected.ytd ? (
             <BarChart

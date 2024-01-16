@@ -35,12 +35,11 @@ export const Pulso: React.FC<Props> = () => {
         <Box
           display={"inline-block"}
           marginTop={mobileCheck ? "250px" : "120px"}
-          marginLeft={mobileCheck ? "50px" : "20px"}
+          marginLeft={mobileCheck ? "50px" : "40px"}
         >
-          {/* <ResponsiveContainer> */}
           <ComposedChart
-            width={1300}
-            height={400}
+            width={mobileCheck ? 1300 : 300}
+            height={mobileCheck ? 400 : 250}
             data={data}
             margin={{
               top: 20,
@@ -65,7 +64,7 @@ export const Pulso: React.FC<Props> = () => {
             flexDirection={"row"}
             justifyContent={"center"}
             marginTop={mobileCheck ? "5px" : "20px"}
-            marginLeft={mobileCheck ? "600px" : ""}
+            marginLeft={mobileCheck ? "600px" : "-40px"}
           >
             <FileDownloadIcon sx={{ color: "#644BBA" }} />
             <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>
