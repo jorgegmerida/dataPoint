@@ -78,7 +78,7 @@ export const Customers: React.FC<Props> = ({
   }
 
   const filterDay = data?.days?.find((day) => day.name === valueToggleDay);
-  console.log(data);
+
   return (
     <>
       {showData && data !== undefined && (
