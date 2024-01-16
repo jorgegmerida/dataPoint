@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  Area,
   Bar,
   CartesianGrid,
   ComposedChart,
@@ -38,25 +37,29 @@ export const Pulso: React.FC<Props> = () => {
           marginTop={mobileCheck ? "250px" : "120px"}
           marginLeft={mobileCheck ? "50px" : "20px"}
         >
+          {/* <ResponsiveContainer> */}
           <ComposedChart
-            width={mobileCheck ? 1300 : 300}
-            height={mobileCheck ? 400 : 200}
+            width={1300}
+            height={400}
             data={data}
+            margin={{
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20,
+            }}
           >
-            <XAxis dataKey="name" />
+            <CartesianGrid stroke="#f5f5f5" />
+            <XAxis dataKey="name" scale="band" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
-            <Area
-              type="monotone"
-              dataKey="amt"
-              fill="#8884d8"
-              stroke="#8884d8"
-            />
-            <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-            <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+            <Bar dataKey="Dia1" barSize={20} fill="#2DCF5A" />
+            <Bar dataKey="Dia10" barSize={20} fill="#358DEB" />
+            <Bar dataKey="Dia20" barSize={20} fill="#EB7635" />
+            <Line type="monotone" dataKey="Dia20" stroke="#ff7300" />
           </ComposedChart>
+
           <Box
             display={"flex"}
             flexDirection={"row"}

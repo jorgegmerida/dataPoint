@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
+  Rectangle,
 } from "recharts";
 import { ICustomerData } from "../../../models";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
@@ -77,7 +78,7 @@ export const Customers: React.FC<Props> = ({
   }
 
   const filterDay = data?.days?.find((day) => day.name === valueToggleDay);
-
+  console.log(data);
   return (
     <>
       {showData && data !== undefined && (
@@ -87,59 +88,84 @@ export const Customers: React.FC<Props> = ({
           alignContent={"center"}
           textAlign={"center"}
           marginTop={mobileCheck ? "250px" : "120px"}
-          marginLeft={mobileCheck ? "50px" : "40px"}
+          marginLeft={mobileCheck ? (selected.ytd ? "120px" : "40px") : "50px"}
         >
-          <BarChart
-            width={mobileCheck ? 1300 : 300}
-            height={mobileCheck ? 400 : 250}
-            data={
-              selected.semana &&
-              (selectedDay.lunes ||
-                selectedDay.martes ||
-                selectedDay.miercoles ||
-                selectedDay.jueves ||
-                selectedDay.viernes ||
-                selectedDay.sabado ||
-                selectedDay.domingo)
-                ? [filterDay]
-                : selected.semana && selectedDay.todo
-                ? data.days
-                : data.hours
-            }
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar
-              dataKey="clientesTotales"
-              fill={clientesT < 1 ? "#EB3535" : "rgb(235,53,53,0.4)"}
-            />
-            <Bar
-              dataKey="clientesNuevos"
-              fill={clientesN < 1 ? "#EB7635" : "rgb(235,53,53,0.4)"}
-            />
-            <Bar
-              dataKey="compraron"
-              fill={clientesC < 1 ? "#358DEB" : "rgb(53,141,235,0.4)"}
-            />
-            <Bar
-              dataKey="noCompraron"
-              fill={clientesNC < 1 ? "#2DCF5A" : "rgb(45,207,90,0.4)"}
-            />
-          </BarChart>
-
-          <Box
-            display={"flex"}
-            flexDirection={"row"}
-            justifyContent={"center"}
-            marginTop={mobileCheck ? "5px" : "20px"}
-            marginLeft={mobileCheck ? "600px" : "-60px"}
-          >
-            <FileDownloadIcon sx={{ color: "#644BBA" }} />
-            <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>
-          </Box>
+          {!selected.ytd ? (
+            <BarChart
+              width={mobileCheck ? 1300 : 300}
+              height={mobileCheck ? 400 : 250}
+              data={
+                selected.semana &&
+                (selectedDay.lunes ||
+                  selectedDay.martes ||
+                  selectedDay.miercoles ||
+                  selectedDay.jueves ||
+                  selectedDay.viernes ||
+                  selectedDay.sabado ||
+                  selectedDay.domingo)
+                  ? [filterDay]
+                  : selected.semana && selectedDay.todo
+                  ? data.days
+                  : data.hours
+              }
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar
+                dataKey="clientesTotales"
+                fill={clientesT < 1 ? "#EB3535" : "rgb(235,53,53,0.4)"}
+              />
+              <Bar
+                dataKey="clientesNuevos"
+                fill={clientesN < 1 ? "#EB7635" : "rgb(235,53,53,0.4)"}
+              />
+              <Bar
+                dataKey="compraron"
+                fill={clientesC < 1 ? "#358DEB" : "rgb(53,141,235,0.4)"}
+              />
+              <Bar
+                dataKey="noCompraron"
+                fill={clientesNC < 1 ? "#2DCF5A" : "rgb(45,207,90,0.4)"}
+              />
+            </BarChart>
+          ) : (
+            <BarChart
+              width={mobileCheck ? 500 : 300}
+              height={mobileCheck ? 400 : 250}
+              data={data.YTD}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar
+                dataKey="2022"
+                fill="#EB3535"
+                activeBar={<Rectangle fill="red" stroke="red" />}
+              />
+              <Bar
+                dataKey="2023"
+                fill="#644BBA"
+                activeBar={<Rectangle fill="#644BBA" stroke="#644BBA" />}
+              />
+            </BarChart>
+          )}
+          {!selected.ytd && (
+            <Box
+              display={"flex"}
+              flexDirection={"row"}
+              justifyContent={"center"}
+              marginTop={mobileCheck ? "5px" : "20px"}
+              marginLeft={mobileCheck ? "600px" : "-60px"}
+            >
+              <FileDownloadIcon sx={{ color: "#644BBA" }} />
+              <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>
+            </Box>
+          )}
         </Box>
       )}
     </>

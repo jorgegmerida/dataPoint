@@ -153,4 +153,26 @@ export interface ICustomerData {
       noCompraron: number;
     }
   ];
+
+  YTG: [
+    {
+      name: string;
+      2022: number;
+    },
+    {
+      name: string;
+      2023: number;
+    }
+  ];
+
+  YTD: [
+    {
+      name: string;
+      2022: number;
+    },
+    {
+      name: string;
+      2023: number;
+    }
+  ];
 }
