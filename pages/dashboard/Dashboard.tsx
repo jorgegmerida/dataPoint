@@ -558,7 +558,7 @@ const Dashboard: React.FC<Props> = () => {
         />
       </Box>
 
-      {selected.semana && (
+      {selected.semana && Dashboards.Customers && (
         <Box display={"flex"} justifyContent={"space-around"}>
           <Box
             display={mobileCheck ? "flex" : "inline-block"}
