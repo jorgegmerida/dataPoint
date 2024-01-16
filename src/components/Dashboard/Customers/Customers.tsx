@@ -87,7 +87,7 @@ export const Customers: React.FC<Props> = ({
           alignContent={"center"}
           textAlign={"center"}
           marginTop={mobileCheck ? "250px" : "120px"}
-          marginLeft={mobileCheck ? "50px" : ""}
+          marginLeft={mobileCheck ? "50px" : "40px"}
         >
           <BarChart
             width={mobileCheck ? 1300 : 300}
@@ -135,7 +135,7 @@ export const Customers: React.FC<Props> = ({
             flexDirection={"row"}
             justifyContent={"center"}
             marginTop={mobileCheck ? "5px" : "20px"}
-            marginLeft={mobileCheck ? "600px" : ""}
+            marginLeft={mobileCheck ? "600px" : "-60px"}
           >
             <FileDownloadIcon sx={{ color: "#644BBA" }} />
             <Typography sx={{ color: "#644BBA" }}>Exportar tabla</Typography>

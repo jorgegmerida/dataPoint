@@ -549,7 +549,7 @@ const Dashboard: React.FC<Props> = () => {
             alignItems: "right",
             alignContent: "right",
             float: "right",
-            right: "0",
+            marginLeft: mobileCheck ? "1400px" : "100px",
             zIndex: mobileCheck ? 1 : 0,
             marginRight: mobileCheck ? "120px" : "30px",
             marginTop: mobileCheck ? "-10px" : "-150px",
