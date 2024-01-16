@@ -937,7 +937,7 @@ const Dashboard: React.FC<Props> = () => {
             marginLeft={"100px"}
             marginTop={"40px"}
           >
-            {(selected.hoy || selected.semana) &&
+            {(selected.hoy || (selected.semana && selectedDay.todo)) &&
               (customersToggle ||
                 transactionToggle ||
                 dineroToggle ||
