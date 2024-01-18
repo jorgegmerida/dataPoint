@@ -132,27 +132,56 @@ export const Customers: React.FC<Props> = ({
               />
             </BarChart>
           ) : (
-            <BarChart
-              width={mobileCheck ? 500 : 300}
-              height={mobileCheck ? 400 : 250}
-              data={data.YTD}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar
-                dataKey="2022"
-                fill="#EB3535"
-                activeBar={<Rectangle fill="red" stroke="red" />}
-              />
-              <Bar
-                dataKey="2023"
-                fill="#644BBA"
-                activeBar={<Rectangle fill="#644BBA" stroke="#644BBA" />}
-              />
-            </BarChart>
+            <Box display={"flex"} flexDirection={"row"} gap={20}>
+              <Box display={"flex"} flexDirection={"column"}>
+                <BarChart
+                  width={mobileCheck ? 500 : 300}
+                  height={mobileCheck ? 400 : 250}
+                  data={data.YTG}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar
+                    dataKey="2022"
+                    fill="#EB3535"
+                    activeBar={<Rectangle fill="red" stroke="red" />}
+                  />
+                  <Bar
+                    dataKey="2023"
+                    fill="#644BBA"
+                    activeBar={<Rectangle fill="#644BBA" stroke="#644BBA" />}
+                  />
+                </BarChart>
+                <Typography>YTG</Typography>
+              </Box>
+              <Box flexDirection={"column"}>
+                <BarChart
+                  width={mobileCheck ? 500 : 300}
+                  height={mobileCheck ? 400 : 250}
+                  data={data.YTD}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar
+                    dataKey="2022"
+                    fill="#EB3535"
+                    activeBar={<Rectangle fill="red" stroke="red" />}
+                  />
+                  <Bar
+                    dataKey="2023"
+                    fill="#644BBA"
+                    activeBar={<Rectangle fill="#644BBA" stroke="#644BBA" />}
+                  />
+                </BarChart>
+                <Typography>YTD</Typography>
+              </Box>
+            </Box>
           )}
           {!selected.ytd && (
             <Box
