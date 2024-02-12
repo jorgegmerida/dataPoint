@@ -788,7 +788,13 @@ const Dashboard: React.FC<Props> = () => {
         flexDirection={"row"}
         justifyContent={mobileCheck ? "space-around" : "center"}
         marginLeft={mobileCheck ? "-200px" : ""}
-        marginTop={mobileCheck ? "84px" : "40px"}
+        marginTop={
+          mobileCheck && Dashboards.Customers
+            ? "84px"
+            : mobileCheck && Dashboards.Pulso
+            ? "90px"
+            : "40px"
+        }
       >
         <Box
           display={"flex"}
