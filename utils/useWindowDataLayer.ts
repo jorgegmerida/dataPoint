@@ -1,7 +1,7 @@
 export const useWindowDataLayer = () => {
   const windowDataLayer = (eventBody: any) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(eventBody);
+    (window.dataLayer as any[]) = (window.dataLayer as any[]) || [];
+    (window.dataLayer as any[]).push(eventBody);
   };
 
   return windowDataLayer;
