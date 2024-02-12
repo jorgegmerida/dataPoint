@@ -793,7 +793,9 @@ const Dashboard: React.FC<Props> = () => {
             ? "84px"
             : mobileCheck && Dashboards.Pulso
             ? "90px"
-            : "40px"
+            : !mobileCheck && Dashboards.Pulso
+            ? "100px"
+            : "90px"
         }
       >
         <Box
